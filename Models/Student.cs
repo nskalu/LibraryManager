@@ -12,9 +12,9 @@ namespace LibraryManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Student 
     {
-        public int StudentId { get; set; }
+        public System.Guid StudentId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
@@ -23,5 +23,6 @@ namespace LibraryManager.Models
         public string PhoneNumber { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<int> CreatedBy { get; set; }
+        public string qrcode { get; set; }
     }
 }

@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -64,6 +67,7 @@
     <Compile Include="Models\Book.cs">
       <DependentUpon>LibraryDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\StudentVM.cs" />
     <Compile Include="Views\AddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +112,12 @@
     <Compile Include="Views\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\IdCardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\IdCardView.Designer.cs">
+      <DependentUpon>IdCardView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +135,9 @@
     </Compile>
     <EmbeddedResource Include="Views\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\IdCardView.resx">
+      <DependentUpon>IdCardView.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\LibraryDbModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -162,8 +175,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
