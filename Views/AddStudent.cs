@@ -1,5 +1,6 @@
 ﻿using LibraryManager.Models;
 using LibraryManager.ViewModels;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ using ZXing;
 
 namespace LibraryManager.Views
 {
-    public partial class AddStudent : Form
+    public partial class AddStudent : MetroForm
     {
         private readonly LibraryManagerEntities ctx;
         public AddStudent()
@@ -29,6 +30,7 @@ namespace LibraryManager.Views
                     c.FirstName,
                     c.Email,
                     c.MatricNo,
+                    c.DateCreated
                 }).ToList();
                 if (response != null)
                 {
@@ -37,7 +39,7 @@ namespace LibraryManager.Views
                     {
                         button.Name = "actionButton";
                         button.HeaderText = "Action";
-                        button.Text = "Select";
+                        button.Text = "Show";
                         button.UseColumnTextForButtonValue = true;                         
                         dataGridView1.Columns.Add(button);
                     }
@@ -54,7 +56,6 @@ namespace LibraryManager.Views
         {
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -68,6 +69,11 @@ namespace LibraryManager.Views
                 }
                 else
                 {
+                    if (ctx.Students.Any(c=>c.Email== txtemail.Text))
+                    {
+                        MessageBox.Show($"A record with that Email{txtemail.Text} already exists", "Sorry", MessageBoxButtons.OK);
+                        return;
+                    }
                     //initialized the Db Context
                     using (var ctx = new LibraryManagerEntities())
                     {
@@ -75,7 +81,7 @@ namespace LibraryManager.Views
                         var stdId = Guid.NewGuid();
                         string makeStudentQR = $"{txtfirstName.Text}|{txtsurname.Text}|" +
                             $"{txtemail.Text}|{txtmatricNo.Text}|{txtlastName.Text}|" +
-                            $"{txtNumber.Text}";
+                            $"{txtNumber.Text}|{stdId.ToString()}";
 
                         //var getStudentQR = getQRCode(makeStudentQR);
                         //byte[] imageByte = null;
@@ -100,6 +106,31 @@ namespace LibraryManager.Views
                         });
 
                         ctx.SaveChanges();
+                        var response = ctx.Students.Select(c => new
+                        {
+                            c.LastName,
+                            c.FirstName,
+                            c.Email,
+                            c.MatricNo,
+                            c.DateCreated
+                        }).ToList();
+                        if (response != null)
+                        {
+                            dataGridView1.DataSource = response;
+                            DataGridViewButtonColumn button = new DataGridViewButtonColumn();
+                            {
+                                button.Name = "actionButton";
+                                button.HeaderText = "Action";
+                                button.Text = "Show";
+                                button.UseColumnTextForButtonValue = true;
+                                dataGridView1.Columns.Add(button);
+                            }
+                        }
+                        else
+                        {
+                            dataGridView1.Visible = false;
+                            groupBox2.Visible = false;
+                        }
                         MessageBox.Show("Record Saved Successfully", "Good Job", MessageBoxButtons.OK);
                     }
                 }
@@ -179,6 +210,16 @@ namespace LibraryManager.Views
             {
                 throw;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtfirstName.Text = "";
+            txtsurname.Text = "";
+            txtemail.Text = "";
+            txtmatricNo.Text = "";
+            txtlastName.Text = "";
+            txtNumber.Text = "";
         }
     }
 }
