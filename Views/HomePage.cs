@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,10 +12,11 @@ using ZXing;
 
 namespace LibraryManager.Views
 {
-    public partial class HomePage : Form
+    public partial class HomePage : MetroForm
     {
         public HomePage()
         {
+            metroProgressSpinner1.Visible = false;
             InitializeComponent();
         }
 
@@ -66,10 +68,17 @@ namespace LibraryManager.Views
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            metroProgressSpinner1.Visible = true;
             AddStudent b = new AddStudent();
             b.MdiParent = this;
             b.StartPosition = FormStartPosition.CenterScreen;
             b.Show();
+            metroProgressSpinner1.Visible = false;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         //private void button1_Click(object sender, EventArgs e)
