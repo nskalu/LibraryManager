@@ -67,6 +67,7 @@
     <Compile Include="Models\Book.cs">
       <DependentUpon>LibraryDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\BookVM.cs" />
     <Compile Include="ViewModels\StudentVM.cs" />
     <Compile Include="Views\AddStudent.cs">
       <SubType>Form</SubType>
