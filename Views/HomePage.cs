@@ -78,6 +78,14 @@ namespace LibraryManager.Views
             Application.Exit();
         }
 
+        private void AddNewBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Books b = new Books(new Models.LibraryManagerEntities());
+            b.MdiParent = this;
+            b.StartPosition = FormStartPosition.CenterScreen;
+            b.Show();
+        }
+
         //private void button1_Click(object sender, EventArgs e)
         //{
         // Image qr=    getQRCode(textBox1.Text);
