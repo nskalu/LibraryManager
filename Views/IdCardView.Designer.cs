@@ -49,7 +49,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(23, 92);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 82);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(101, 104);
             this.pictureBox1.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(35, 19);
+            this.lblName.Location = new System.Drawing.Point(16, 19);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(58, 21);
             this.lblName.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(50, 16);
+            this.lblPhone.Location = new System.Drawing.Point(34, 16);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(69, 25);
             this.lblPhone.TabIndex = 2;
