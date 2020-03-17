@@ -86,6 +86,14 @@ namespace LibraryManager.Views
             b.Show();
         }
 
+        private void StudentBorrowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StudentBook b = new StudentBook(new Models.LibraryManagerEntities());
+            b.MdiParent = this;
+            b.StartPosition = FormStartPosition.CenterScreen;
+            b.Show();
+        }
+
         //private void button1_Click(object sender, EventArgs e)
         //{
         // Image qr=    getQRCode(textBox1.Text);
