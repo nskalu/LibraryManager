@@ -21,6 +21,7 @@ namespace LibraryManager.Views
         public AddStudent()
         {
             InitializeComponent();
+            Cursor.Current = Cursors.WaitCursor;
             ctx = new LibraryManagerEntities();
             using (var ctx = new LibraryManagerEntities())
             {
@@ -49,6 +50,7 @@ namespace LibraryManager.Views
                     dataGridView1.Visible = false;
                     groupBox2.Visible = false;
                 }
+                Cursor = Cursors.Arrow;
             }
         }
 
