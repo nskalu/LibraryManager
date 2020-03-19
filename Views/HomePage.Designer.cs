@@ -37,6 +37,8 @@
             this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.existingBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrowABookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentBorrowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +46,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.bookToolStripMenuItem});
+            this.bookToolStripMenuItem,
+            this.borrowABookToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(635, 24);
@@ -93,7 +96,7 @@
             // addNewBookToolStripMenuItem
             // 
             this.addNewBookToolStripMenuItem.Name = "addNewBookToolStripMenuItem";
-            this.addNewBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewBookToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.addNewBookToolStripMenuItem.Text = "Add New Book";
             this.addNewBookToolStripMenuItem.Click += new System.EventHandler(this.AddNewBookToolStripMenuItem_Click);
             // 
@@ -102,6 +105,21 @@
             this.existingBookToolStripMenuItem.Name = "existingBookToolStripMenuItem";
             this.existingBookToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.existingBookToolStripMenuItem.Text = "Existing Book";
+            // 
+            // borrowABookToolStripMenuItem
+            // 
+            this.borrowABookToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.studentBorrowToolStripMenuItem});
+            this.borrowABookToolStripMenuItem.Name = "borrowABookToolStripMenuItem";
+            this.borrowABookToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.borrowABookToolStripMenuItem.Text = "Borrow A Book";
+            // 
+            // studentBorrowToolStripMenuItem
+            // 
+            this.studentBorrowToolStripMenuItem.Name = "studentBorrowToolStripMenuItem";
+            this.studentBorrowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.studentBorrowToolStripMenuItem.Text = "Student Borrow";
+            this.studentBorrowToolStripMenuItem.Click += new System.EventHandler(this.StudentBorrowToolStripMenuItem_Click);
             // 
             // HomePage
             // 
@@ -134,5 +152,7 @@
         private System.Windows.Forms.ToolStripMenuItem addNewBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem existingBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borrowABookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentBorrowToolStripMenuItem;
     }
 }

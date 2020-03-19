@@ -80,6 +80,7 @@
       <DependentUpon>LibraryDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BookVM.cs" />
+    <Compile Include="ViewModels\StudentBook.cs" />
     <Compile Include="ViewModels\StudentVM.cs" />
     <Compile Include="Views\AddStudent.cs">
       <SubType>Form</SubType>
@@ -131,6 +132,12 @@
     <Compile Include="Views\IdCardView.Designer.cs">
       <DependentUpon>IdCardView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\StudentBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StudentBook.Designer.cs">
+      <DependentUpon>StudentBook.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\IdCardView.resx">
       <DependentUpon>IdCardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StudentBook.resx">
+      <DependentUpon>StudentBook.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\LibraryDbModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
