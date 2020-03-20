@@ -20,15 +20,15 @@ namespace LibraryManager.Views
         {
             InitializeComponent();
             lblName.Text = $"{student.LastName} {student.FirstName} {student.MiddleName}";
-            lblMatric.Text = student.MatricNo;
-            lblPhone.Text = student.PhoneNumber;
+            lblMatric.Text = student.PhoneNumber;
+            lblPhone.Text = student.MatricNo;
             pictureBox1.Image = getQRCode(student.qrcode);
         }
         Image getQRCode(string data)
         {
             BarcodeWriter wr = new BarcodeWriter();
 
-            wr.Format = BarcodeFormat.QR_CODE;
+            wr.Format = BarcodeFormat.CODE_93;
 
             System.IO.MemoryStream ms = new System.IO.MemoryStream();
 

@@ -81,9 +81,10 @@ namespace LibraryManager.Views
                     {
                         //Using Student Info to generate QR
                         var stdId = Guid.NewGuid();
-                        string makeStudentQR = $"{txtfirstName.Text}|{txtsurname.Text}|" +
-                            $"{txtemail.Text}|{txtmatricNo.Text}|{txtlastName.Text}|" +
-                            $"{txtNumber.Text}|{stdId.ToString()}";
+                        string makeStudentQR = $"{txtmatricNo.Text}";
+                        //string makeStudentQR = $"{txtfirstName.Text}|{txtsurname.Text}|" +
+                        //    $"{txtemail.Text}|{txtmatricNo.Text}|{txtlastName.Text}|" +
+                        //    $"{txtNumber.Text}|{stdId.ToString()}";
 
                         //var getStudentQR = getQRCode(makeStudentQR);
                         //byte[] imageByte = null;
@@ -92,7 +93,7 @@ namespace LibraryManager.Views
                         //    getStudentQR.Save(ms, getStudentQR.RawFormat);
                         //    imageByte = ms.ToArray();
                         //}
-                            //Saving student Info to DB
+                        //Saving student Info to DB
                         ctx.Students.Add(new Student()
                         {
                             FirstName = txtfirstName.Text,
@@ -119,14 +120,7 @@ namespace LibraryManager.Views
                         if (response != null)
                         {
                             dataGridView1.DataSource = response;
-                            DataGridViewButtonColumn button = new DataGridViewButtonColumn();
-                            {
-                                button.Name = "actionButton";
-                                button.HeaderText = "Action";
-                                button.Text = "Show";
-                                button.UseColumnTextForButtonValue = true;
-                                dataGridView1.Columns.Add(button);
-                            }
+                           
                         }
                         else
                         {
