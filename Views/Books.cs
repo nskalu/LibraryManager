@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManager.Models;
 using MetroFramework.Forms;
+using ClosedXML.Excel;
 
 namespace LibraryManager
 {
@@ -97,6 +99,98 @@ namespace LibraryManager
             {
                 dataGridView1.Visible = false;
                 groupBox2.Visible = false;
+            }
+        }
+
+        private void MetroButton3_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+        }
+
+        private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void MetroButton2_Click(object sender, EventArgs e)
+        {
+          
+            var filee = openFileDialog1.FileName;
+            try
+            {
+                var filePath = Path.GetTempFileName();
+                if (Path.GetExtension(filee) != ".xlsx" && Path.GetExtension(filee) != ".xls")
+                {
+
+                    MessageBox.Show("This is not a valid excel file", "Invalid File", MessageBoxButtons.OK);
+
+                }
+                else
+                {
+                    int first = 1, last = 4;
+                    int rowIndex = 0;
+                    bool firstRow = true;
+                    DataTable dt = new DataTable();
+                    using (XLWorkbook workBook = new XLWorkbook(filee))
+                    {
+
+                        //Read the first Sheet from Excel file.
+                        IXLWorksheet workSheet = workBook.Worksheet(1);
+                        foreach (IXLRow row in workSheet.Rows())
+                        {
+
+                            if (firstRow)
+                            {
+
+                              firstRow = false;
+                            }
+                            else {
+                          
+                            {
+                                string title = row.Cell(2).Value.ToString();
+                                if (ctx.Books.Any(c => c.Title == title))
+                                {
+                                    MessageBox.Show($"A book with the Title {title} already exists", "Sorry", MessageBoxButtons.OK);
+
+                                }
+                                else
+                                {
+                                    //initialized the Db Context
+                                    using (var ctx = new LibraryManagerEntities())
+                                    {
+                                            string qty = row.Cell(5).Value.ToString();
+
+                                        ctx.Books.Add(new Book()
+                                        {
+                                            Author = row.Cell(4).Value.ToString(),
+                                            ISBN = row.Cell(3).Value.ToString(),
+                                            QtyEntered = Int32.Parse(qty),
+                                            QtyAvailable = Int32.Parse(qty),
+                                            Title = row.Cell(2).Value.ToString()
+
+                                        });
+
+                                        ctx.SaveChanges();
+                                   
+                                    }
+                                }
+                             
+
+                            }
+                            }
+
+                        }
+
+                        LoadGrid();
+                        MessageBox.Show("Records Saved Successfully", "Good Job", MessageBoxButtons.OK);
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+
             }
         }
     }
