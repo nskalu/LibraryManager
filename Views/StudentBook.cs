@@ -22,6 +22,7 @@ namespace LibraryManager.Views
             InitializeComponent();
             ctx = _ctx;
             LoadDropDown();
+            lblID.Hide();
         }
 
 
@@ -72,31 +73,34 @@ namespace LibraryManager.Views
         }
 
         //call this method on scan of the qr code
-        private void GetStudentBookHistory(Guid StudentId)
+        private void GetStudentBookHistory(string MatricNo)
         {
             try
             {
-               
-               var res  =  ctx.StudentBooks.Where(m=>m.StudentId==StudentId)
-             .Include(m => m.Student)
-             .Include(m => m.Book).ToList().Select(c=> new {
+                var data = ctx.Students.Where(m => m.MatricNo == MatricNo).FirstOrDefault();
+                var StudentId = data.StudentId;
+                var FullName = data.FirstName + " "+ data.LastName;
 
-                 c.FullName,
-                 c.Student.MatricNo,
-                 c.Book.Title,
-                 c.DateBorrowed,
-                 c.DateToReturn,
-                 c.IsReturned,
-                 c.DateReturned
-             });
-            if (res != null)
+                var res = (from s in ctx.StudentBooks
+                              join sa in ctx.Books on s.BookId equals sa.BookId
+                              where s.StudentId == StudentId
+                              select sa).ToList();
+
+                lblMatric.Text = MatricNo;
+                lblName.Text = FullName;
+                lblID.Text = data.StudentId.ToString();
+
+                if (res.Count()>0)
                 {
                     gdvHistory.DataSource = res;
                 }
                 else
                 {
-                    gdvHistory.Rows.Add();
-                    gdvHistory.Rows[0].Cells[0].Value = "No Borrow Record";
+                    gdvHistory.Columns.Add("No Data", "No Borrow Record");
+                    //gdvHistory.Rows.Add();
+                    //gdvHistory.Rows[0].Cells[0].Value = "No Borrow Record";
+                    
+
                 }
 
             }
@@ -109,7 +113,8 @@ namespace LibraryManager.Views
 
         private void BtnBorrow_Click(object sender, EventArgs e)
         {
-            var studentId = new Guid(); //enter the student id here
+            string matric = lblMatric.Text;
+            var studentId = Guid.Parse(lblID.Text);//enter the student id here
             try
             {
                 if (cmbBooks.SelectedValue == null) 
@@ -118,11 +123,13 @@ namespace LibraryManager.Views
                 }
                 else
                 {
-                    if (ctx.StudentBooks.Any(c => c.BookId == (int)cmbBooks.SelectedValue))
+                    if (ctx.StudentBooks.Any(c => c.BookId == (int)cmbBooks.SelectedValue && c.StudentId==studentId))
                     {
                         MessageBox.Show($"A book with the Title {cmbBooks.Text} already exists for this Student", "Sorry", MessageBoxButtons.OK);
                         return;
                     }
+                    var qty = ctx.Books.SingleOrDefault(m => m.BookId == (int)cmbBooks.SelectedValue).QtyAvailable;
+                    if (qty > 0) { 
                     //initialized the Db Context
                     using (var ctx = new LibraryManagerEntities())
                     {
@@ -136,8 +143,17 @@ namespace LibraryManager.Views
                         }) ;
 
                         ctx.SaveChanges();
-                        GetStudentBookHistory(studentId);
-                        MessageBox.Show("Record Saved Successfully", "Good Job", MessageBoxButtons.OK);
+                        
+                        MessageBox.Show("Book Borrowed to Student Successfully", "Good Job", MessageBoxButtons.OK);
+                        
+                        qty--;
+                        ctx.SaveChanges();
+                            GetStudentBookHistory(matric);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"{cmbBooks.Text} is out of stock", "Sorry", MessageBoxButtons.OK);
                     }
                 }
             }
@@ -146,6 +162,11 @@ namespace LibraryManager.Views
 
                 MessageBox.Show("An error occured while saving record", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Btnsearch_Click(object sender, EventArgs e)
+        {
+            GetStudentBookHistory(txtcriteria.Text);
         }
     }
 }

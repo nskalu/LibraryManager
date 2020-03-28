@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace LibraryManager.ViewModels
 {
-    public class BookVM
+    public class StudentBookVM
     {
         public int Id { get; set; }
+        public DateTime DateBorrowed { get; set; }
         public string Title { get; set; }
-        public string ISBN { get; set; }
-        public string Author { get; set; }
-        public string QtyInStock { get; set; }
+        public DateTime DateToReturn { get; set; }
+        public Boolean IsReturned { get; set; }
+        public DateTime DateReturned { get; set; }
+        
     }
 }

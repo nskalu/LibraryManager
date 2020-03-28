@@ -56,16 +56,17 @@ namespace LibraryManager
                     //initialized the Db Context
                     using (var ctx = new LibraryManagerEntities())
                     {
-                        
+
                         ctx.Books.Add(new Book()
                         {
-                           Author = txtAuthor.Text,
-                           ISBN=txtISBN.Text,
-                           QtyEntered= Int32.Parse(txtQty.Text),
-                           QtyAvailable= Int32.Parse(txtQty.Text),
-                           Title=txtTitle.Text
+                            Author = txtAuthor.Text,
+                            ISBN = txtISBN.Text,
+                            QtyEntered = Int32.Parse(txtQty.Text),
+                            QtyAvailable = Int32.Parse(txtQty.Text),
+                            Title = txtTitle.Text,
+                            DateCreated = DateTime.Now.Date
 
-                        });
+                        }) ;
 
                         ctx.SaveChanges();
                         LoadGrid();
@@ -131,6 +132,7 @@ namespace LibraryManager
                     int rowIndex = 0;
                     bool firstRow = true;
                     DataTable dt = new DataTable();
+                    int count = 0;
                     using (XLWorkbook workBook = new XLWorkbook(filee))
                     {
 
@@ -159,7 +161,7 @@ namespace LibraryManager
                                     using (var ctx = new LibraryManagerEntities())
                                     {
                                             string qty = row.Cell(5).Value.ToString();
-
+                                            
                                         ctx.Books.Add(new Book()
                                         {
                                             Author = row.Cell(4).Value.ToString(),
@@ -171,6 +173,7 @@ namespace LibraryManager
                                         });
 
                                         ctx.SaveChanges();
+                                        count++;
                                    
                                     }
                                 }
@@ -182,7 +185,7 @@ namespace LibraryManager
                         }
 
                         LoadGrid();
-                        MessageBox.Show("Records Saved Successfully", "Good Job", MessageBoxButtons.OK);
+                        MessageBox.Show(count +" Records Saved Successfully", "Good Job", MessageBoxButtons.OK);
                     }
                 }
             }

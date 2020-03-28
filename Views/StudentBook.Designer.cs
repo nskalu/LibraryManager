@@ -40,6 +40,9 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.cmbDateToReturn = new MetroFramework.Controls.MetroDateTime();
+            this.txtcriteria = new MetroFramework.Controls.MetroTextBox();
+            this.btnsearch = new MetroFramework.Controls.MetroButton();
+            this.lblID = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvHistory)).BeginInit();
             this.metroPanel1.SuspendLayout();
@@ -92,7 +95,7 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(23, 81);
+            this.metroPanel1.Location = new System.Drawing.Point(23, 83);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(309, 100);
             this.metroPanel1.TabIndex = 3;
@@ -123,9 +126,8 @@
             this.lblMatric.AutoSize = true;
             this.lblMatric.Location = new System.Drawing.Point(137, 60);
             this.lblMatric.Name = "lblMatric";
-            this.lblMatric.Size = new System.Drawing.Size(83, 19);
+            this.lblMatric.Size = new System.Drawing.Size(0, 0);
             this.lblMatric.TabIndex = 7;
-            this.lblMatric.Text = "metroLabel4";
             this.lblMatric.Click += new System.EventHandler(this.MetroLabel4_Click);
             // 
             // lblName
@@ -133,9 +135,8 @@
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(137, 13);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(83, 19);
+            this.lblName.Size = new System.Drawing.Size(0, 0);
             this.lblName.TabIndex = 8;
-            this.lblName.Text = "metroLabel5";
             // 
             // metroLabel1
             // 
@@ -163,11 +164,62 @@
             this.cmbDateToReturn.Size = new System.Drawing.Size(307, 29);
             this.cmbDateToReturn.TabIndex = 7;
             // 
+            // txtcriteria
+            // 
+            // 
+            // 
+            // 
+            this.txtcriteria.CustomButton.Image = null;
+            this.txtcriteria.CustomButton.Location = new System.Drawing.Point(196, 1);
+            this.txtcriteria.CustomButton.Name = "";
+            this.txtcriteria.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtcriteria.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtcriteria.CustomButton.TabIndex = 1;
+            this.txtcriteria.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtcriteria.CustomButton.UseSelectable = true;
+            this.txtcriteria.CustomButton.Visible = false;
+            this.txtcriteria.Lines = new string[0];
+            this.txtcriteria.Location = new System.Drawing.Point(25, 56);
+            this.txtcriteria.MaxLength = 32767;
+            this.txtcriteria.Name = "txtcriteria";
+            this.txtcriteria.PasswordChar = '\0';
+            this.txtcriteria.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtcriteria.SelectedText = "";
+            this.txtcriteria.SelectionLength = 0;
+            this.txtcriteria.SelectionStart = 0;
+            this.txtcriteria.ShortcutsEnabled = true;
+            this.txtcriteria.Size = new System.Drawing.Size(218, 23);
+            this.txtcriteria.TabIndex = 9;
+            this.txtcriteria.UseSelectable = true;
+            this.txtcriteria.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtcriteria.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // btnsearch
+            // 
+            this.btnsearch.Location = new System.Drawing.Point(252, 56);
+            this.btnsearch.Name = "btnsearch";
+            this.btnsearch.Size = new System.Drawing.Size(75, 23);
+            this.btnsearch.TabIndex = 10;
+            this.btnsearch.Text = "Search";
+            this.btnsearch.UseSelectable = true;
+            this.btnsearch.Click += new System.EventHandler(this.Btnsearch_Click);
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(292, 351);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 13);
+            this.lblID.TabIndex = 11;
+            // 
             // StudentBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 413);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.btnsearch);
+            this.Controls.Add(this.txtcriteria);
             this.Controls.Add(this.cmbDateToReturn);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel1);
@@ -201,5 +253,8 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroDateTime cmbDateToReturn;
+        private MetroFramework.Controls.MetroTextBox txtcriteria;
+        private MetroFramework.Controls.MetroButton btnsearch;
+        private System.Windows.Forms.Label lblID;
     }
 }

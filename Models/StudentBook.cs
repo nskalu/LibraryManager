@@ -22,5 +22,6 @@ namespace LibraryManager.Models
         public Nullable<System.DateTime> DateReturned { get; set; }
         public Nullable<bool> IsReturned { get; set; }
         public Nullable<int> CreatedBy { get; set; }
+
     }
 }

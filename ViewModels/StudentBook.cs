@@ -10,14 +10,14 @@ namespace LibraryManager.Models
     public partial class StudentBook
     {
 
-        public string FullName
-        { get
-            {
-                return Student.LastName+ " " + Student.FirstName + " "+ Student.MiddleName;
-            }
+        //public string FullName
+        //{ get
+        //    {
+        //        return Student.LastName+ " " + Student.FirstName + " "+ Student.MiddleName;
+        //    }
 
-        }
-        public virtual Book Book { get; set; }
-        public virtual Student Student{ get; set; }
+        //}
+        public  IList<Book> Bookss { get; set; }
+        public IList<Student> Studentss { get; set; }
     }
 }
