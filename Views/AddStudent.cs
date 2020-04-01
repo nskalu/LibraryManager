@@ -173,14 +173,7 @@ namespace LibraryManager.Views
 
         }
 
-        private void AddStudent_Load(object sender, EventArgs e)
-        {
-            
-        }
-        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-
-        }
+       
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

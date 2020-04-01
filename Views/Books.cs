@@ -110,6 +110,8 @@ namespace LibraryManager
 
         private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
+            var filee = openFileDialog1.FileName;
+            btnChoose.Text = filee;
 
         }
 

@@ -48,6 +48,7 @@ namespace LibraryManager.Views
 
         }
         string readQRCode(string data, string source)
+
         {
             BarcodeReader reader = new BarcodeReader();
 

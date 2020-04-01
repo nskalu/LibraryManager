@@ -42,10 +42,10 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnChoose = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -165,7 +165,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.metroButton3);
+            this.groupBox3.Controls.Add(this.btnChoose);
             this.groupBox3.Controls.Add(this.metroButton2);
             this.groupBox3.Controls.Add(this.metroLabel5);
             this.groupBox3.Location = new System.Drawing.Point(36, 248);
@@ -174,6 +174,16 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Upload Excel";
+            // 
+            // btnChoose
+            // 
+            this.btnChoose.Location = new System.Drawing.Point(108, 31);
+            this.btnChoose.Name = "btnChoose";
+            this.btnChoose.Size = new System.Drawing.Size(128, 23);
+            this.btnChoose.TabIndex = 15;
+            this.btnChoose.Text = "Choose file..";
+            this.btnChoose.UseSelectable = true;
+            this.btnChoose.Click += new System.EventHandler(this.MetroButton3_Click);
             // 
             // metroButton2
             // 
@@ -198,16 +208,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
-            // 
-            // metroButton3
-            // 
-            this.metroButton3.Location = new System.Drawing.Point(108, 31);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(128, 23);
-            this.metroButton3.TabIndex = 15;
-            this.metroButton3.Text = "Choose file..";
-            this.metroButton3.UseSelectable = true;
-            this.metroButton3.Click += new System.EventHandler(this.MetroButton3_Click);
             // 
             // Books
             // 
@@ -245,7 +245,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroButton metroButton1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroButton btnChoose;
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

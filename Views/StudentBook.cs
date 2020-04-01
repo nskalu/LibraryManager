@@ -35,7 +35,7 @@ namespace LibraryManager.Views
         {
             try
             {
-
+                this.ActiveControl = txtcriteria;
             }
             catch (Exception)
             {
@@ -72,19 +72,24 @@ namespace LibraryManager.Views
         
         }
 
-        //call this method on scan of the qr code
+        //call this method on scan of the barcode
         private void GetStudentBookHistory(string MatricNo)
         {
             try
             {
                 var data = ctx.Students.Where(m => m.MatricNo == MatricNo).FirstOrDefault();
+                if (data == null)
+                {
+                    MessageBox.Show("This Matric Number Has Not Been Registered", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 var StudentId = data.StudentId;
                 var FullName = data.FirstName + " "+ data.LastName;
 
                 var res = (from s in ctx.StudentBooks
                               join sa in ctx.Books on s.BookId equals sa.BookId
                               where s.StudentId == StudentId
-                              select sa).ToList();
+                              select new { sa.Title, sa.Author, sa.ISBN, s.DateBorrowed, s.DateToReturn,s.DateReturned}).ToList();
 
                 lblMatric.Text = MatricNo;
                 lblName.Text = FullName;
@@ -97,8 +102,7 @@ namespace LibraryManager.Views
                 else
                 {
                     gdvHistory.Columns.Add("No Data", "No Borrow Record");
-                    //gdvHistory.Rows.Add();
-                    //gdvHistory.Rows[0].Cells[0].Value = "No Borrow Record";
+                   
                     
 
                 }
@@ -110,7 +114,20 @@ namespace LibraryManager.Views
                 MessageBox.Show("An error occured while loading Borrow History", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private void txtcriteria_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                string strCurrentString = txtcriteria.Text.Trim().ToString();
+                if (strCurrentString != "")
+                {
+                    //Do something with the barcode entered
+                    txtcriteria.Text = "";
+                    GetStudentBookHistory(strCurrentString);
+                }
+                txtcriteria.Focus();
+            }
+        }
         private void BtnBorrow_Click(object sender, EventArgs e)
         {
             string matric = lblMatric.Text;
@@ -138,16 +155,18 @@ namespace LibraryManager.Views
                         {
                             StudentId = studentId,
                             BookId = (int)cmbBooks.SelectedValue,
-                            DateToReturn = cmbDateToReturn.Value
+                            DateToReturn = cmbDateToReturn.Value,
+                            DateBorrowed = DateTime.Now.Date
 
                         }) ;
-
-                        ctx.SaveChanges();
                         
-                        MessageBox.Show("Book Borrowed to Student Successfully", "Good Job", MessageBoxButtons.OK);
-                        
-                        qty--;
+                        var book = ctx.Books.Find((int)cmbBooks.SelectedValue);
+                            var qty1 = book.QtyAvailable;
+                            book.QtyAvailable = --qty1; 
                         ctx.SaveChanges();
+                            
+                            ctx.SaveChanges();
+                            MessageBox.Show("Book Borrowed to Student Successfully", "Good Job", MessageBoxButtons.OK);
                             GetStudentBookHistory(matric);
                         }
                     }
@@ -168,5 +187,7 @@ namespace LibraryManager.Views
         {
             GetStudentBookHistory(txtcriteria.Text);
         }
+      
+     
     }
 }
