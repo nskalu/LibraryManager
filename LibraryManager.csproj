@@ -63,6 +63,17 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.Design">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -79,6 +90,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -97,23 +109,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datasets\Library.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Library.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Library2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Library2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\Book.cs">
       <DependentUpon>LibraryDbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\BookVM.cs" />
-    <Compile Include="ViewModels\StudentBook.cs" />
-    <Compile Include="ViewModels\StudentVM.cs" />
-    <Compile Include="Views\AddStudent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\AddStudent.Designer.cs">
-      <DependentUpon>AddStudent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Books.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Books.Designer.cs">
-      <DependentUpon>Books.cs</DependentUpon>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>LibraryDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LibraryDbModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -130,8 +140,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryDbModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Student.cs">
       <DependentUpon>LibraryDbModel.tt</DependentUpon>
     </Compile>
@@ -140,6 +148,42 @@
     </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>LibraryDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="ViewModels\BookVM.cs" />
+    <Compile Include="ViewModels\StudentBook.cs" />
+    <Compile Include="ViewModels\StudentVM.cs" />
+    <Compile Include="Views\AddStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddStudent.Designer.cs">
+      <DependentUpon>AddStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BookReport.Designer.cs">
+      <DependentUpon>BookReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Books.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Books.Designer.cs">
+      <DependentUpon>Books.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\BorrowReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BorrowReport.Designer.cs">
+      <DependentUpon>BorrowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailyReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DailyReport.Designer.cs">
+      <DependentUpon>DailyReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\HomePage.cs">
       <SubType>Form</SubType>
@@ -153,14 +197,55 @@
     <Compile Include="Views\IdCardView.Designer.cs">
       <DependentUpon>IdCardView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewUser.Designer.cs">
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReportViewer.Designer.cs">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\StudentBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\StudentBook.Designer.cs">
       <DependentUpon>StudentBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\StudentsVisitReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StudentsVisitReport.Designer.cs">
+      <DependentUpon>StudentsVisitReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TestReport.Designer.cs">
+      <DependentUpon>TestReport.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reports\AllBooks.rdlc" />
+    <EmbeddedResource Include="Reports\Available.rdlc" />
+    <EmbeddedResource Include="Reports\BookTest.rdlc" />
+    <EmbeddedResource Include="Reports\BorrowDetails.rdlc" />
+    <EmbeddedResource Include="Reports\BorrowReport.rdlc" />
+    <EmbeddedResource Include="Reports\DailyReport.rdlc" />
+    <EmbeddedResource Include="Reports\Registered.rdlc" />
+    <EmbeddedResource Include="Reports\StudentsVisit.rdlc" />
     <EmbeddedResource Include="Views\AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BookReport.resx">
+      <DependentUpon>BookReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Books.resx">
       <DependentUpon>Books.cs</DependentUpon>
@@ -173,20 +258,64 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\BorrowReport.resx">
+      <DependentUpon>BorrowReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DailyReport.resx">
+      <DependentUpon>DailyReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\IdCardView.resx">
       <DependentUpon>IdCardView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewUser.resx">
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReportViewer.resx">
+      <DependentUpon>ReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\StudentBook.resx">
       <DependentUpon>StudentBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StudentsVisitReport.resx">
+      <DependentUpon>StudentsVisitReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TestReport.resx">
+      <DependentUpon>TestReport.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\LibraryDbModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LibraryDbModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Datasets\Library.xsc">
+      <DependentUpon>Library.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Library.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Library.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Library.xss">
+      <DependentUpon>Library.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Library2.xsc">
+      <DependentUpon>Library2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Library2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Library2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\Library2.xss">
+      <DependentUpon>Library2.xsd</DependentUpon>
+    </None>
     <None Include="Models\LibraryDbModel.edmx.diagram">
       <DependentUpon>LibraryDbModel.edmx</DependentUpon>
     </None>
@@ -208,18 +337,40 @@
     <Content Include="head_logo_7qs_icon.ico" />
     <Content Include="Models\LibraryDbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LibraryDbModel.Context.cs</LastGenOutput>
       <DependentUpon>LibraryDbModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryDbModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\LibraryDbModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LibraryDbModel.edmx</DependentUpon>
       <LastGenOutput>LibraryDbModel.cs</LastGenOutput>
     </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\library background image1.JPG" />
+    <None Include="Resources\library background image.JPG" />
+    <None Include="Resources\login.png" />
+    <None Include="Resources\si-logo-banner1.png" />
+    <None Include="Resources\19-1User-512.png" />
+    <None Include="Resources\002-user-avatar.png" />
+    <None Include="Resources\swu logo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="packages\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

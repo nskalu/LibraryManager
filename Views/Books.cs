@@ -26,25 +26,17 @@ namespace LibraryManager
 
        
 
-        private void Books_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MetroLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void MetroButton1_Click(object sender, EventArgs e)
         {
             try
             {
                 //Check if feilds are nulls
-                if (string.IsNullOrWhiteSpace(txtTitle.Text) && string.IsNullOrWhiteSpace(txtAuthor.Text)
-                    && string.IsNullOrWhiteSpace(txtISBN.Text) && string.IsNullOrWhiteSpace(txtQty.Text))
+                if (string.IsNullOrWhiteSpace(txtTitle.Text) || string.IsNullOrWhiteSpace(txtAuthor.Text)
+                    || string.IsNullOrWhiteSpace(txtISBN.Text) || string.IsNullOrWhiteSpace(txtQty.Text) || (int)ddlCategory.SelectedValue ==0)
                 {
-                    MessageBox.Show("All fields are required", "Warning", MessageBoxButtons.OK);
+                    MessageBox.Show("All fields are required", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -64,50 +56,85 @@ namespace LibraryManager
                             QtyEntered = Int32.Parse(txtQty.Text),
                             QtyAvailable = Int32.Parse(txtQty.Text),
                             Title = txtTitle.Text,
-                            DateCreated = DateTime.Now.Date
+                            DateCreated = DateTime.Now.Date,
+                            CategoryId=(int)ddlCategory.SelectedValue
 
                         }) ;
 
                         ctx.SaveChanges();
                         LoadGrid();
-                        MessageBox.Show("Record Saved Successfully", "Good Job", MessageBoxButtons.OK);
+                        MessageBox.Show("Record Saved Successfully", "Good Job", MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
                 }
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
         }
 
         private void LoadGrid()
         {
-            var response = ctx.Books.Select(c => new
+            try
             {
-                c.Title,
-                c.Author,
-                c.ISBN,
-                c.QtyEntered,
-                c.QtyAvailable
-            }).ToList();
-            if (response != null)
-            {
-                dataGridView1.DataSource = response;
+                var response = ctx.Books.Select(c => new
+                {
+                    c.Title,
+                    c.Author,
+                    c.ISBN,
+                    c.QtyEntered,
+                    c.QtyAvailable
+                }).ToList();
+                if (response != null)
+                {
+                    dataGridView1.DataSource = response;
                
+                }
+                else
+                {
+                    dataGridView1.Visible = false;
+                    groupBox2.Visible = false;
+                }
             }
-            else
+            catch (Exception)
             {
-                dataGridView1.Visible = false;
-                groupBox2.Visible = false;
+
+                MessageBox.Show("An error occured while loading Books", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            try
+            {
+                var response = ctx.Categories.Select(c => new
+                {
+                    c.CategoryName,
+                    c.Id
+                }).ToList();
+                if (response != null && response.Count() >0 )
+                {
+                    ddlCategory.ValueMember = "Id";
+                    ddlCategory.DisplayMember = "CategoryName";
+                    ddlCategory.DataSource = response;
+
+                }
+                else
+                {
+                    ddlCategory.Items.Insert(0, "No Category Created Yet");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("An error occured while loading Category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void MetroButton3_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
         }
-
+        
         private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             var filee = openFileDialog1.FileName;
@@ -125,7 +152,7 @@ namespace LibraryManager
                 if (Path.GetExtension(filee) != ".xlsx" && Path.GetExtension(filee) != ".xls")
                 {
 
-                    MessageBox.Show("This is not a valid excel file", "Invalid File", MessageBoxButtons.OK);
+                    MessageBox.Show("This is not a valid excel file", "Invalid File", MessageBoxButtons.OK, MessageBoxIcon.Warning );
 
                 }
                 else
@@ -195,7 +222,48 @@ namespace LibraryManager
             catch (Exception ex)
             {
 
+                MessageBox.Show("An error occured while uploading the file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void BtnCategory_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Check if feilds are nulls
+                if (string.IsNullOrWhiteSpace(txtCategory.Text))
+                {
+                    MessageBox.Show("Please enter a Category name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    if (ctx.Books.Any(c => c.Title == txtTitle.Text))
+                    {
+                        MessageBox.Show($"{txtCategory.Text} already exists", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    //initialized the Db Context
+                    using (var ctx = new LibraryManagerEntities())
+                    {
+
+                        ctx.Categories.Add(new Category()
+                        {
+                            CategoryName = txtCategory.Text,
+                            DateCreated = DateTime.Now.Date,
+                            CreatedBy=1
+
+                        });
+
+                        ctx.SaveChanges();
+                        LoadGrid();
+                        MessageBox.Show("Category Saved Successfully", "Good Job", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
         }
     }

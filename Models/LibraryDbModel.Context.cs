@@ -26,6 +26,7 @@ namespace LibraryManager.Models
         }
     
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<StudentBook> StudentBooks { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<User> Users { get; set; }

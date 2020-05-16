@@ -22,5 +22,7 @@ namespace LibraryManager.Models
         public Nullable<int> QtyAvailable { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<int> CreatedBy { get; set; }
+        public Nullable<int> CategoryId { get; set; }
+        public Nullable<long> TimesBorowed { get; set; }
     }
 }

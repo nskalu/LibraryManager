@@ -33,5 +33,16 @@ namespace LibraryManager.Properties {
                 return ((string)(this["Setting"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\mssqllocaldb;Initial Catalog=LibraryManager;Integrated Secu" +
+            "rity=True")]
+        public string LibraryManagerConnectionString {
+            get {
+                return ((string)(this["LibraryManagerConnectionString"]));
+            }
+        }
     }
 }

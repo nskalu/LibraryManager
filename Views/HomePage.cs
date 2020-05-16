@@ -95,10 +95,68 @@ namespace LibraryManager.Views
             b.Show();
         }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        // Image qr=    getQRCode(textBox1.Text);
-        //    pictureBox1.Image = qr;
-        //}
+        private void SubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StudentsVisitReport b = new StudentsVisitReport(new Models.LibraryManagerEntities());
+            b.MdiParent = this;
+            b.StartPosition = FormStartPosition.CenterScreen;
+            b.Show();
+        }
+
+        private void ExistingBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookReport b = new BookReport(new Models.LibraryManagerEntities());
+            b.MdiParent = this;
+            b.StartPosition = FormStartPosition.CenterScreen;
+            b.Show();
+        }
+
+        private void BooksBorrowedReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BorrowReport b = new BorrowReport(new Models.LibraryManagerEntities());
+            b.MdiParent = this;
+            b.StartPosition = FormStartPosition.CenterScreen;
+            b.Show();
+        }
+
+        private void AddNewUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewUser b = new NewUser(new Models.LibraryManagerEntities());
+            b.MdiParent = this;
+            b.StartPosition = FormStartPosition.CenterScreen;
+            b.Show();
+        }
+
+        private void studentsVisitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StudentsVisitReport b = new StudentsVisitReport(new Models.LibraryManagerEntities());
+            b.MdiParent = this;
+            b.StartPosition = FormStartPosition.CenterScreen;
+            b.Show();
+        }
+
+        private void booksReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookReport b = new BookReport(new Models.LibraryManagerEntities());
+            b.MdiParent = this;
+            b.StartPosition = FormStartPosition.CenterScreen;
+            b.Show();
+        }
+
+        private void bookBorrowedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BorrowReport b = new BorrowReport(new Models.LibraryManagerEntities());
+            b.MdiParent = this;
+            b.StartPosition = FormStartPosition.CenterScreen;
+            b.Show();
+        }
+
+        private void dailyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DailyReport b = new DailyReport(new Models.LibraryManagerEntities());
+            b.MdiParent = this;
+            b.StartPosition = FormStartPosition.CenterScreen;
+            b.Show();
+        }
     }
 }

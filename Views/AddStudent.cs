@@ -40,7 +40,7 @@ namespace LibraryManager.Views
                     {
                         button.Name = "actionButton";
                         button.HeaderText = "Action";
-                        button.Text = "Show";
+                        button.Text = "Print Access Card";
                         button.UseColumnTextForButtonValue = true;                         
                         dataGridView1.Columns.Add(button);
                     }
@@ -210,5 +210,7 @@ namespace LibraryManager.Views
             txtlastName.Text = "";
             txtNumber.Text = "";
         }
+
+    
     }
 }

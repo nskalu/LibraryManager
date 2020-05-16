@@ -20,8 +20,8 @@ namespace LibraryManager.Views
         {
             InitializeComponent();
             lblName.Text = $"{student.LastName} {student.FirstName} {student.MiddleName}";
-            lblMatric.Text = student.PhoneNumber;
-            lblPhone.Text = student.MatricNo;
+            lblMatric.Text = student.MatricNo;
+            lblPhone.Text = student.PhoneNumber;
             pictureBox1.Image = getQRCode(student.qrcode);
         }
         Image getQRCode(string data)

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LibraryManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LibraryManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Books">
           <Key>
             <PropertyRef Name="BookId" />
@@ -17,6 +17,18 @@
           <Property Name="QtyAvailable" Type="int" />
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="CreatedBy" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="TimesBorowed" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="DateStamp" Type="datetime" />
         </EntityType>
         <EntityType Name="StudentBooks">
           <Key>
@@ -44,7 +56,7 @@
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="qrcode" Type="nvarchar(max)" />
-          <Property Name="StudentId" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="None" />
+          <Property Name="StudentId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -60,6 +72,7 @@
         </EntityType>
         <EntityContainer Name="LibraryManagerModelStoreContainer">
           <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentBooks" EntityType="Self.StudentBooks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -80,25 +93,36 @@
           <Property Name="QtyAvailable" Type="Int32" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="TimesBorowed" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="DateStamp" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="StudentBook">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StudentId" Type="Guid" />
           <Property Name="BookId" Type="Int32" />
           <Property Name="DateBorrowed" Type="DateTime" Precision="3" />
           <Property Name="DateToReturn" Type="DateTime" Precision="0" />
           <Property Name="DateReturned" Type="DateTime" Precision="0" />
           <Property Name="IsReturned" Type="Boolean" />
           <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="StudentId" Type="Guid" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="StudentId" />
           </Key>
-          <Property Name="StudentId" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -107,7 +131,8 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="qrcode" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="qrcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StudentId" Type="Guid" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -123,6 +148,7 @@
         </EntityType>
         <EntityContainer Name="LibraryManagerEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Books" EntityType="Self.Book" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="StudentBooks" EntityType="Self.StudentBook" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -136,6 +162,7 @@
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="LibraryManagerModel.Book">
               <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="TimesBorowed" ColumnName="TimesBorowed" />
                 <ScalarProperty Name="BookId" ColumnName="BookId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Author" ColumnName="Author" />
@@ -144,6 +171,18 @@
                 <ScalarProperty Name="QtyAvailable" ColumnName="QtyAvailable" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="LibraryManagerModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -151,21 +190,19 @@
             <EntityTypeMapping TypeName="LibraryManagerModel.StudentBook">
               <MappingFragment StoreEntitySet="StudentBooks">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="BookId" ColumnName="BookId" />
                 <ScalarProperty Name="DateBorrowed" ColumnName="DateBorrowed" />
                 <ScalarProperty Name="DateToReturn" ColumnName="DateToReturn" />
                 <ScalarProperty Name="DateReturned" ColumnName="DateReturned" />
                 <ScalarProperty Name="IsReturned" ColumnName="IsReturned" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="LibraryManagerModel.Student">
               <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="qrcode" ColumnName="qrcode" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
@@ -174,6 +211,8 @@
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="qrcode" ColumnName="qrcode" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -204,7 +243,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

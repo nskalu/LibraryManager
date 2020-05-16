@@ -53,7 +53,7 @@
             this.groupBox1.Controls.Add(this.gdvHistory);
             this.groupBox1.Location = new System.Drawing.Point(361, 72);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(422, 333);
+            this.groupBox1.Size = new System.Drawing.Size(714, 333);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Borrow History";
@@ -61,10 +61,12 @@
             // gdvHistory
             // 
             this.gdvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdvHistory.Location = new System.Drawing.Point(6, 31);
+            this.gdvHistory.Location = new System.Drawing.Point(6, 26);
             this.gdvHistory.Name = "gdvHistory";
-            this.gdvHistory.Size = new System.Drawing.Size(410, 296);
+            this.gdvHistory.Size = new System.Drawing.Size(695, 296);
             this.gdvHistory.TabIndex = 0;
+            this.gdvHistory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GdvHistory_CellContentClick);
+            this.gdvHistory.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.GdvHistory_DataBindingComplete);
             // 
             // cmbBooks
             // 
@@ -217,7 +219,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 413);
+            this.ClientSize = new System.Drawing.Size(1085, 413);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnsearch);
             this.Controls.Add(this.txtcriteria);

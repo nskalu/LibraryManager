@@ -15,13 +15,12 @@ namespace LibraryManager.Models
     public partial class StudentBook
     {
         public int Id { get; set; }
-        public Nullable<System.Guid> StudentId { get; set; }
         public Nullable<int> BookId { get; set; }
         public Nullable<System.DateTime> DateBorrowed { get; set; }
         public Nullable<System.DateTime> DateToReturn { get; set; }
         public Nullable<System.DateTime> DateReturned { get; set; }
         public Nullable<bool> IsReturned { get; set; }
         public Nullable<int> CreatedBy { get; set; }
-
+        public Nullable<System.Guid> StudentId { get; set; }
     }
 }
