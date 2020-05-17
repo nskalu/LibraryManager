@@ -47,9 +47,9 @@
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(16, 101);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(444, 150);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -59,7 +59,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 23);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(419, 96);
             this.dataGridView1.TabIndex = 0;
@@ -69,9 +69,9 @@
             // 
             this.groupBox2.Controls.Add(this.gdvBorrowed);
             this.groupBox2.Location = new System.Drawing.Point(16, 337);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(464, 220);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -81,7 +81,7 @@
             // 
             this.gdvBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gdvBorrowed.Location = new System.Drawing.Point(8, 23);
-            this.gdvBorrowed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gdvBorrowed.Margin = new System.Windows.Forms.Padding(4);
             this.gdvBorrowed.Name = "gdvBorrowed";
             this.gdvBorrowed.Size = new System.Drawing.Size(448, 183);
             this.gdvBorrowed.TabIndex = 1;
@@ -90,9 +90,9 @@
             // 
             this.groupBox3.Controls.Add(this.gdvReturned);
             this.groupBox3.Location = new System.Drawing.Point(503, 337);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(440, 220);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
@@ -102,19 +102,20 @@
             // 
             this.gdvReturned.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gdvReturned.Location = new System.Drawing.Point(8, 23);
-            this.gdvReturned.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gdvReturned.Margin = new System.Windows.Forms.Padding(4);
             this.gdvReturned.Name = "gdvReturned";
             this.gdvReturned.Size = new System.Drawing.Size(424, 183);
             this.gdvReturned.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(779, 119);
+            this.button1.Location = new System.Drawing.Point(747, 119);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 33);
+            this.button1.Size = new System.Drawing.Size(178, 33);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Download Report";
+            this.button1.Text = "Download today\'s Report";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DailyReport
             // 
@@ -125,7 +126,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DailyReport";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "DailyReport";

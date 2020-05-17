@@ -56,9 +56,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.07639in</Top>
-        <Left>1.07902in</Left>
+        <Left>1.45402in</Left>
         <Height>0.47917in</Height>
-        <Width>4.3125in</Width>
+        <Width>4.52083in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -91,7 +91,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.625in</Top>
-        <Left>1.64584in</Left>
+        <Left>2.02084in</Left>
         <Height>0.29167in</Height>
         <Width>3.0625in</Width>
         <ZIndex>1</ZIndex>
@@ -122,7 +122,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>1.26972in</Top>
-        <Left>1.64584in</Left>
+        <Left>2.02084in</Left>
         <Height>0.25in</Height>
         <Width>3.34375in</Width>
         <ZIndex>2</ZIndex>
@@ -141,7 +141,7 @@
         <Value>download</Value>
         <Sizing>FitProportional</Sizing>
         <Top>0.07639in</Top>
-        <Left>0.15104in</Left>
+        <Left>0.27604in</Left>
         <Height>0.61458in</Height>
         <Width>0.61458in</Width>
         <ZIndex>3</ZIndex>
@@ -155,13 +155,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.52778in</Width>
+              <Width>1.56701in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.52778in</Width>
+              <Width>2.8034in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.52778in</Width>
+              <Width>2.52314in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -200,21 +200,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox5">
+                    <Textbox Name="Textbox4">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>No Borrowed</Value>
+                              <Value>Borrowed</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -230,21 +230,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox7">
+                    <Textbox Name="Textbox9">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>No Returned</Value>
+                              <Value>Returned</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -295,21 +295,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="NoBorrowed">
+                    <Textbox Name="Borrowed">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!NoBorrowed.Value</Value>
+                              <Value>=Fields!Borrowed.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>NoBorrowed</rd:DefaultName>
+                      <rd:DefaultName>Borrowed</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -325,21 +325,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="NoReturned">
+                    <Textbox Name="Returned">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!NoReturned.Value</Value>
+                              <Value>=Fields!Returned.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>NoReturned</rd:DefaultName>
+                      <rd:DefaultName>Returned</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -376,9 +376,9 @@
         </TablixRowHierarchy>
         <DataSetName>DailyReport</DataSetName>
         <Top>1.86333in</Top>
-        <Left>0.93625in</Left>
-        <Height>0.59375in</Height>
-        <Width>4.58333in</Width>
+        <Left>0.52604in</Left>
+        <Height>0.59376in</Height>
+        <Width>6.89355in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -390,7 +390,7 @@
     <Height>2.96875in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>7.52792in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -419,18 +419,18 @@
           <DataField>CurrentDate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NoBorrowed">
-          <DataField>NoBorrowed</DataField>
+        <Field Name="Borrowed">
+          <DataField>Borrowed</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NoReturned">
-          <DataField>NoReturned</DataField>
+        <Field Name="Returned">
+          <DataField>Returned</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>Library</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\nskalu\Source\Repos\LibraryManagerV1\Datasets\Library.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Dell\source\repos\LibraryManagerV1\Datasets\Library.xsd</rd:SchemaPath>
         <rd:TableName>DailyReport</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

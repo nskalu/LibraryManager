@@ -51,8 +51,8 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CurrentDate" msprop:Generator_ColumnVarNameInTable="columnCurrentDate" msprop:Generator_ColumnPropNameInRow="CurrentDate" msprop:Generator_ColumnPropNameInTable="CurrentDateColumn" msprop:Generator_UserColumnName="CurrentDate" type="xs:string" minOccurs="0" />
-              <xs:element name="NoBorrowed" msprop:Generator_ColumnVarNameInTable="columnNoBorrowed" msprop:Generator_ColumnPropNameInRow="NoBorrowed" msprop:Generator_ColumnPropNameInTable="NoBorrowedColumn" msprop:Generator_UserColumnName="NoBorrowed" type="xs:string" minOccurs="0" />
-              <xs:element name="NoReturned" msprop:Generator_ColumnVarNameInTable="columnNoReturned" msprop:Generator_ColumnPropNameInRow="NoReturned" msprop:Generator_ColumnPropNameInTable="NoReturnedColumn" msprop:Generator_UserColumnName="NoReturned" type="xs:string" minOccurs="0" />
+              <xs:element name="Borrowed" msprop:Generator_ColumnVarNameInTable="columnBorrowed" msprop:Generator_ColumnPropNameInRow="Borrowed" msprop:Generator_ColumnPropNameInTable="BorrowedColumn" msprop:Generator_UserColumnName="Borrowed" type="xs:string" minOccurs="0" />
+              <xs:element name="Returned" msprop:Generator_ColumnVarNameInTable="columnReturned" msprop:Generator_ColumnPropNameInRow="Returned" msprop:Generator_ColumnPropNameInTable="ReturnedColumn" msprop:Generator_UserColumnName="Returned" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

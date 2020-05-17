@@ -48,9 +48,18 @@ namespace LibraryManager.Views
                         dt2.Rows.Add();
                     for (int r = 0; r <=dt.Columns.Count - 1; r++)
                     {
+      
                         string type = (dt.Rows[i][r].GetType().FullName);
                         if (type == "System.DateTime")
-                            dt2.Rows[i][r] = DateTime.ParseExact(dt.Rows[i][r].ToString(), "dd/MM/yyyy", provider);
+                        {
+                            //because getting date out of nullable datetime isn't pretty straightforward, i used a hack 
+                            DateTime? date = null;
+                            date = Convert.ToDateTime(dt.Rows[i][r]);
+                            string finalDate = string.Empty;
+
+                            finalDate = date !=null ? date.Value.ToShortDateString() : null;
+                            dt2.Rows[i][r] = finalDate;
+                        }
                         else 
                             dt2.Rows[i][r] = dt.Rows[i][r].ToString();
                     }

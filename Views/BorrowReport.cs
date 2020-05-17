@@ -182,12 +182,11 @@ namespace LibraryManager.Views
                 datasetName = "BorrowStatDetail";
                 try
                 {
-                    var r = DateTime.Now.Date;
                     
                     var res = (from s in ctx.StudentBooks
                                join sa in ctx.Books on s.BookId equals sa.BookId
                                join st in  ctx.Students on s.StudentId equals st.StudentId
-                               select new { Name= st.FirstName + st.MiddleName + st.LastName, st.MatricNo, sa.Title, sa.Author, sa.ISBN,
+                               select new { Name= st.FirstName + " "+ st.MiddleName +" "+ st.LastName, st.MatricNo, sa.Title, sa.Author, sa.ISBN,
                                    s.DateBorrowed, 
                                    s.DateToReturn,
                                    s.DateReturned, HasReturned = s.IsReturned == true ? "Yes" : "No"

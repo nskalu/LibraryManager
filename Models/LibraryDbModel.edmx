@@ -37,8 +37,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BookId" Type="int" />
           <Property Name="DateBorrowed" Type="datetime" />
-          <Property Name="DateToReturn" Type="date" />
-          <Property Name="DateReturned" Type="date" />
+          <Property Name="DateToReturn" Type="datetime" />
+          <Property Name="DateReturned" Type="datetime" />
           <Property Name="IsReturned" Type="bit" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="StudentId" Type="uniqueidentifier" />
@@ -113,8 +113,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BookId" Type="Int32" />
           <Property Name="DateBorrowed" Type="DateTime" Precision="3" />
-          <Property Name="DateToReturn" Type="DateTime" Precision="0" />
-          <Property Name="DateReturned" Type="DateTime" Precision="0" />
+          <Property Name="DateToReturn" Type="DateTime" Precision="3" />
+          <Property Name="DateReturned" Type="DateTime" Precision="3" />
           <Property Name="IsReturned" Type="Boolean" />
           <Property Name="CreatedBy" Type="Int32" />
           <Property Name="StudentId" Type="Guid" />

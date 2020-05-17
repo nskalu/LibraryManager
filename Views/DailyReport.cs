@@ -9,12 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManager.Models;
+using Newtonsoft.Json;
 
 namespace LibraryManager.Views
 {
     public partial class DailyReport : MetroForm
     {
         private readonly LibraryManagerEntities ctx;
+        string ReportName, datasetName;
+        DataTable dt = new DataTable();
+        DataTable dt1 = new DataTable();
+        DataTable dt2 = new DataTable();
         public DailyReport(LibraryManagerEntities _ctx)
         {
             InitializeComponent();
@@ -117,6 +122,81 @@ namespace LibraryManager.Views
             }
         }
 
-     
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    ReportName = "DailyReport.rdlc";
+                    datasetName = "DailyReport";
+                    try
+                    {
+
+                        var bor = (from s in ctx.StudentBooks
+                                   join sa in ctx.Books on s.BookId equals sa.BookId
+                                   //where s.DateBorrowed.ToString() == "2020-04-12"//DateTime.Now.Date
+                                   select new
+                                   {
+                                      
+                                       Borrowed= sa.Title + " "+sa.Author,
+                                   }).
+                                   OrderBy(m => m.Borrowed).ToList();
+
+                        var ret = (from s in ctx.StudentBooks
+                                   join sa in ctx.Books on s.BookId equals sa.BookId
+                                   where s.DateReturned.ToString() == "2020-04-12" //DateTime.Now.Date
+                                   select new
+                                   {
+
+                                       Returned = sa.Title + " " + sa.Author,
+                                   }).
+                              OrderBy(m => m.Returned).ToList();
+
+                        var r = JsonConvert.SerializeObject(ret);
+                        var b = JsonConvert.SerializeObject(bor);
+                        dt = JsonConvert.DeserializeObject<DataTable>(r);
+                        dt1 = JsonConvert.DeserializeObject<DataTable>(b);
+
+                        //merge both results into one dt
+                        dt2.Columns.Add("CurrentDate");
+                        dt2.Columns.Add("Borrowed");
+                        dt2.Columns.Add("Returned");
+
+                        dt2.Rows.Add();
+                        dt2.Rows[0][0] = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+                        for (int i= 0; i<=dt1.Rows.Count-1; i++)
+                        {
+                            dt2.Rows[i][1] = dt1.Rows[i][0];
+                            dt2.Rows.Add();
+                        }
+                        for (int i = 0; i <= dt.Rows.Count-1; i++)
+                        {
+                            dt2.Rows[i][2] = dt.Rows[i][0];
+                        }
+
+                        ReportViewer rp = new ReportViewer(ReportName, dt2, datasetName);
+                        rp.StartPosition = FormStartPosition.CenterScreen;
+                        rp.Show();
+                        dt.Clear();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("An error occured while loading the report viewer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("An error occured while loading the report viewer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

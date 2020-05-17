@@ -1498,9 +1498,9 @@ namespace LibraryManager.Datasets {
             
             private global::System.Data.DataColumn columnCurrentDate;
             
-            private global::System.Data.DataColumn columnNoBorrowed;
+            private global::System.Data.DataColumn columnBorrowed;
             
-            private global::System.Data.DataColumn columnNoReturned;
+            private global::System.Data.DataColumn columnReturned;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1545,17 +1545,17 @@ namespace LibraryManager.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NoBorrowedColumn {
+            public global::System.Data.DataColumn BorrowedColumn {
                 get {
-                    return this.columnNoBorrowed;
+                    return this.columnBorrowed;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NoReturnedColumn {
+            public global::System.Data.DataColumn ReturnedColumn {
                 get {
-                    return this.columnNoReturned;
+                    return this.columnReturned;
                 }
             }
             
@@ -1596,12 +1596,12 @@ namespace LibraryManager.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DailyReportRow AddDailyReportRow(string CurrentDate, string NoBorrowed, string NoReturned) {
+            public DailyReportRow AddDailyReportRow(string CurrentDate, string Borrowed, string Returned) {
                 DailyReportRow rowDailyReportRow = ((DailyReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CurrentDate,
-                        NoBorrowed,
-                        NoReturned};
+                        Borrowed,
+                        Returned};
                 rowDailyReportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDailyReportRow);
                 return rowDailyReportRow;
@@ -1625,8 +1625,8 @@ namespace LibraryManager.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnCurrentDate = base.Columns["CurrentDate"];
-                this.columnNoBorrowed = base.Columns["NoBorrowed"];
-                this.columnNoReturned = base.Columns["NoReturned"];
+                this.columnBorrowed = base.Columns["Borrowed"];
+                this.columnReturned = base.Columns["Returned"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1634,10 +1634,10 @@ namespace LibraryManager.Datasets {
             private void InitClass() {
                 this.columnCurrentDate = new global::System.Data.DataColumn("CurrentDate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurrentDate);
-                this.columnNoBorrowed = new global::System.Data.DataColumn("NoBorrowed", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNoBorrowed);
-                this.columnNoReturned = new global::System.Data.DataColumn("NoReturned", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNoReturned);
+                this.columnBorrowed = new global::System.Data.DataColumn("Borrowed", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBorrowed);
+                this.columnReturned = new global::System.Data.DataColumn("Returned", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReturned);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3888,33 +3888,33 @@ namespace LibraryManager.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string NoBorrowed {
+            public string Borrowed {
                 get {
                     try {
-                        return ((string)(this[this.tableDailyReport.NoBorrowedColumn]));
+                        return ((string)(this[this.tableDailyReport.BorrowedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoBorrowed\' in table \'DailyReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Borrowed\' in table \'DailyReport\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDailyReport.NoBorrowedColumn] = value;
+                    this[this.tableDailyReport.BorrowedColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string NoReturned {
+            public string Returned {
                 get {
                     try {
-                        return ((string)(this[this.tableDailyReport.NoReturnedColumn]));
+                        return ((string)(this[this.tableDailyReport.ReturnedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoReturned\' in table \'DailyReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Returned\' in table \'DailyReport\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDailyReport.NoReturnedColumn] = value;
+                    this[this.tableDailyReport.ReturnedColumn] = value;
                 }
             }
             
@@ -3932,26 +3932,26 @@ namespace LibraryManager.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNoBorrowedNull() {
-                return this.IsNull(this.tableDailyReport.NoBorrowedColumn);
+            public bool IsBorrowedNull() {
+                return this.IsNull(this.tableDailyReport.BorrowedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNoBorrowedNull() {
-                this[this.tableDailyReport.NoBorrowedColumn] = global::System.Convert.DBNull;
+            public void SetBorrowedNull() {
+                this[this.tableDailyReport.BorrowedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNoReturnedNull() {
-                return this.IsNull(this.tableDailyReport.NoReturnedColumn);
+            public bool IsReturnedNull() {
+                return this.IsNull(this.tableDailyReport.ReturnedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNoReturnedNull() {
-                this[this.tableDailyReport.NoReturnedColumn] = global::System.Convert.DBNull;
+            public void SetReturnedNull() {
+                this[this.tableDailyReport.ReturnedColumn] = global::System.Convert.DBNull;
             }
         }
         
