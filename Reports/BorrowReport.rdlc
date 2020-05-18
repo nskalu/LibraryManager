@@ -57,8 +57,8 @@
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.07639in</Top>
         <Left>1.07902in</Left>
-        <Height>0.47917in</Height>
-        <Width>4.3125in</Width>
+        <Height>0.5125in</Height>
+        <Width>4.55417in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -90,7 +90,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.625in</Top>
+        <Top>0.75in</Top>
         <Left>1.64584in</Left>
         <Height>0.29167in</Height>
         <Width>3.0625in</Width>
@@ -441,8 +441,8 @@
         <DataSetName>BorrowStat</DataSetName>
         <Top>2.01958in</Top>
         <Left>0.75917in</Left>
-        <Height>0.66667in</Height>
-        <Width>4.73958in</Width>
+        <Height>0.66666in</Height>
+        <Width>4.7396in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>

@@ -51,9 +51,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.gdvHistory);
-            this.groupBox1.Location = new System.Drawing.Point(361, 72);
+            this.groupBox1.Location = new System.Drawing.Point(481, 89);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(714, 333);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(952, 410);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Borrow History";
@@ -61,9 +63,10 @@
             // gdvHistory
             // 
             this.gdvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdvHistory.Location = new System.Drawing.Point(6, 26);
+            this.gdvHistory.Location = new System.Drawing.Point(8, 32);
+            this.gdvHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gdvHistory.Name = "gdvHistory";
-            this.gdvHistory.Size = new System.Drawing.Size(695, 296);
+            this.gdvHistory.Size = new System.Drawing.Size(927, 364);
             this.gdvHistory.TabIndex = 0;
             this.gdvHistory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GdvHistory_CellContentClick);
             this.gdvHistory.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.GdvHistory_DataBindingComplete);
@@ -71,18 +74,20 @@
             // cmbBooks
             // 
             this.cmbBooks.FormattingEnabled = true;
-            this.cmbBooks.ItemHeight = 23;
-            this.cmbBooks.Location = new System.Drawing.Point(25, 247);
+            this.cmbBooks.ItemHeight = 24;
+            this.cmbBooks.Location = new System.Drawing.Point(33, 304);
+            this.cmbBooks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbBooks.Name = "cmbBooks";
-            this.cmbBooks.Size = new System.Drawing.Size(307, 29);
+            this.cmbBooks.Size = new System.Drawing.Size(408, 30);
             this.cmbBooks.TabIndex = 1;
             this.cmbBooks.UseSelectable = true;
             // 
             // btnBorrow
             // 
-            this.btnBorrow.Location = new System.Drawing.Point(25, 351);
+            this.btnBorrow.Location = new System.Drawing.Point(33, 432);
+            this.btnBorrow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBorrow.Name = "btnBorrow";
-            this.btnBorrow.Size = new System.Drawing.Size(143, 28);
+            this.btnBorrow.Size = new System.Drawing.Size(191, 34);
             this.btnBorrow.TabIndex = 2;
             this.btnBorrow.Text = "Borrow Book to Student";
             this.btnBorrow.UseSelectable = true;
@@ -96,37 +101,41 @@
             this.metroPanel1.Controls.Add(this.lblName);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(23, 83);
+            this.metroPanel1.HorizontalScrollbarSize = 12;
+            this.metroPanel1.Location = new System.Drawing.Point(31, 102);
+            this.metroPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(309, 100);
+            this.metroPanel1.Size = new System.Drawing.Size(412, 123);
             this.metroPanel1.TabIndex = 3;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.metroPanel1.VerticalScrollbarSize = 13;
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(22, 60);
+            this.metroLabel2.Location = new System.Drawing.Point(29, 74);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(68, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(70, 20);
             this.metroLabel2.TabIndex = 5;
             this.metroLabel2.Text = "Matric No";
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(22, 12);
+            this.metroLabel3.Location = new System.Drawing.Point(29, 15);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(45, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(47, 20);
             this.metroLabel3.TabIndex = 6;
             this.metroLabel3.Text = "Name";
             // 
             // lblMatric
             // 
             this.lblMatric.AutoSize = true;
-            this.lblMatric.Location = new System.Drawing.Point(137, 60);
+            this.lblMatric.Location = new System.Drawing.Point(183, 74);
+            this.lblMatric.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMatric.Name = "lblMatric";
             this.lblMatric.Size = new System.Drawing.Size(0, 0);
             this.lblMatric.TabIndex = 7;
@@ -135,7 +144,8 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(137, 13);
+            this.lblName.Location = new System.Drawing.Point(183, 16);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(0, 0);
             this.lblName.TabIndex = 8;
@@ -143,27 +153,30 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(25, 222);
+            this.metroLabel1.Location = new System.Drawing.Point(33, 273);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(94, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(98, 20);
             this.metroLabel1.TabIndex = 4;
             this.metroLabel1.Text = "Select a Book..";
             // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(23, 285);
+            this.metroLabel4.Location = new System.Drawing.Point(31, 351);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(94, 19);
+            this.metroLabel4.Size = new System.Drawing.Size(99, 20);
             this.metroLabel4.TabIndex = 6;
             this.metroLabel4.Text = "Date to Return";
             // 
             // cmbDateToReturn
             // 
-            this.cmbDateToReturn.Location = new System.Drawing.Point(25, 309);
-            this.cmbDateToReturn.MinimumSize = new System.Drawing.Size(0, 29);
+            this.cmbDateToReturn.Location = new System.Drawing.Point(33, 380);
+            this.cmbDateToReturn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDateToReturn.MinimumSize = new System.Drawing.Size(0, 30);
             this.cmbDateToReturn.Name = "cmbDateToReturn";
-            this.cmbDateToReturn.Size = new System.Drawing.Size(307, 29);
+            this.cmbDateToReturn.Size = new System.Drawing.Size(408, 30);
             this.cmbDateToReturn.TabIndex = 7;
             // 
             // txtcriteria
@@ -172,16 +185,18 @@
             // 
             // 
             this.txtcriteria.CustomButton.Image = null;
-            this.txtcriteria.CustomButton.Location = new System.Drawing.Point(196, 1);
+            this.txtcriteria.CustomButton.Location = new System.Drawing.Point(353, 2);
+            this.txtcriteria.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtcriteria.CustomButton.Name = "";
-            this.txtcriteria.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtcriteria.CustomButton.Size = new System.Drawing.Size(31, 28);
             this.txtcriteria.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtcriteria.CustomButton.TabIndex = 1;
             this.txtcriteria.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtcriteria.CustomButton.UseSelectable = true;
             this.txtcriteria.CustomButton.Visible = false;
             this.txtcriteria.Lines = new string[0];
-            this.txtcriteria.Location = new System.Drawing.Point(25, 56);
+            this.txtcriteria.Location = new System.Drawing.Point(33, 69);
+            this.txtcriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtcriteria.MaxLength = 32767;
             this.txtcriteria.Name = "txtcriteria";
             this.txtcriteria.PasswordChar = '\0';
@@ -190,7 +205,7 @@
             this.txtcriteria.SelectionLength = 0;
             this.txtcriteria.SelectionStart = 0;
             this.txtcriteria.ShortcutsEnabled = true;
-            this.txtcriteria.Size = new System.Drawing.Size(218, 23);
+            this.txtcriteria.Size = new System.Drawing.Size(291, 28);
             this.txtcriteria.TabIndex = 9;
             this.txtcriteria.UseSelectable = true;
             this.txtcriteria.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -199,9 +214,10 @@
             // 
             // btnsearch
             // 
-            this.btnsearch.Location = new System.Drawing.Point(252, 56);
+            this.btnsearch.Location = new System.Drawing.Point(336, 69);
+            this.btnsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(75, 23);
+            this.btnsearch.Size = new System.Drawing.Size(100, 28);
             this.btnsearch.TabIndex = 10;
             this.btnsearch.Text = "Search";
             this.btnsearch.UseSelectable = true;
@@ -210,16 +226,17 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(292, 351);
+            this.lblID.Location = new System.Drawing.Point(389, 432);
+            this.lblID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(0, 13);
+            this.lblID.Size = new System.Drawing.Size(0, 17);
             this.lblID.TabIndex = 11;
             // 
             // StudentBook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 413);
+            this.ClientSize = new System.Drawing.Size(1447, 508);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnsearch);
             this.Controls.Add(this.txtcriteria);
@@ -230,7 +247,9 @@
             this.Controls.Add(this.btnBorrow);
             this.Controls.Add(this.cmbBooks);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "StudentBook";
+            this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Borrow a Book";
             this.Load += new System.EventHandler(this.StudentBook_Load);
             this.groupBox1.ResumeLayout(false);

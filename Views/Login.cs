@@ -18,6 +18,7 @@ namespace LibraryManager.Views
         public Login()
         {
             InitializeComponent();
+            txtusername.Focus();
         }
 
         private void PictureBox2_Click(object sender, EventArgs e)
@@ -29,11 +30,11 @@ namespace LibraryManager.Views
         {
             try
             {
-                  if( string.IsNullOrWhiteSpace(txtpassword.Text) && string.IsNullOrWhiteSpace(txtusername.Text))
+                  if( string.IsNullOrWhiteSpace(txtusername.Text) && string.IsNullOrWhiteSpace(txtpassword.Text))
                 {
                     MessageBox.Show("Please enter username and password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                if (ctx.Users.Any(c => c.username == txtusername.Text && c.Password == txtpassword.Text))
+                if (ctx.Users.Any(c => c.username == txtpassword.Text && c.Password == txtusername.Text))
                 {
                 HomePage homePage = new HomePage();
                 homePage.Show();
