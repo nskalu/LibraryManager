@@ -47,8 +47,8 @@ namespace LibraryManager.Views
                                   r.StudentId,
                                   r.Name,
                                   r.MatricNo,
-                                  QtyBorrowed = allRecord.Count(),
-                                  QtyReturned = allRecord.Count(a => a.IsReturned == true)
+                                  QtyBorrowed = allRecord.Count(a=> a.StudentId== r.StudentId),
+                                  QtyReturned = allRecord.Count(a => a.IsReturned == true && a.StudentId == r.StudentId)
                               }).Distinct().ToList();
 
                 

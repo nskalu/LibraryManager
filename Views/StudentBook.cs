@@ -77,6 +77,8 @@ namespace LibraryManager.Views
         {
             try
             {
+                gdvHistory.Columns.Clear();
+
                 var data = ctx.Students.Where(m => m.MatricNo == MatricNo).FirstOrDefault();
                 if (data == null)
                 {
@@ -115,8 +117,9 @@ namespace LibraryManager.Views
                         button.Name = "actionButton";
                         button.HeaderText = "Action";
                         button.Text = "Return";
+                        
                         button.ToolTipText = "Return this Book";
-                        button.DefaultCellStyle.BackColor = Color.Blue;
+                        button.DefaultCellStyle.ForeColor = Color.Blue;
                         button.UseColumnTextForButtonValue = true;
                         if (!gdvHistory.Columns.Contains("actionButton"))
                         {
@@ -124,9 +127,7 @@ namespace LibraryManager.Views
                             gdvHistory.Columns.Add(button);
 
                         }
-                        //{
-                        //    gdvHistory.Columns[0].Visible = true;
-                        //}
+                      
                     }
                     foreach (DataGridViewRow selectedrow in gdvHistory.Rows)
                     {
@@ -139,6 +140,7 @@ namespace LibraryManager.Views
                             selectedrow.Cells[8] = oEmptyTextCell;
 
                         }
+                    
 
                     }
                 }

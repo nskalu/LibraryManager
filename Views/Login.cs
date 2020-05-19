@@ -55,5 +55,10 @@ namespace LibraryManager.Views
                 MessageBox.Show($"Opps an error occured, Try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtusername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -62,10 +62,10 @@
             // metroButton1
             // 
             this.metroButton1.Location = new System.Drawing.Point(364, 201);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(100, 28);
-            this.metroButton1.TabIndex = 2;
+            this.metroButton1.TabIndex = 3;
             this.metroButton1.Text = "Login";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.MetroButton1_Click);
@@ -75,7 +75,7 @@
             this.pictureBox2.BackgroundImage = global::LibraryManager.Properties.Resources.login;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(31, 78);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(181, 151);
             this.pictureBox2.TabIndex = 6;
@@ -87,7 +87,7 @@
             this.pictureBox1.BackgroundImage = global::LibraryManager.Properties.Resources.swu_logo;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(463, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(133, 62);
             this.pictureBox1.TabIndex = 5;
@@ -98,7 +98,8 @@
             this.txtusername.Location = new System.Drawing.Point(364, 91);
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(205, 22);
-            this.txtusername.TabIndex = 7;
+            this.txtusername.TabIndex = 1;
+            this.txtusername.TextChanged += new System.EventHandler(this.txtusername_TextChanged);
             // 
             // txtpassword
             // 
@@ -106,7 +107,7 @@
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.PasswordChar = '*';
             this.txtpassword.Size = new System.Drawing.Size(205, 22);
-            this.txtpassword.TabIndex = 8;
+            this.txtpassword.TabIndex = 2;
             // 
             // Login
             // 
@@ -120,7 +121,7 @@
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Login";
