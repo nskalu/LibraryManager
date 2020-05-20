@@ -79,7 +79,7 @@
             this.cmbBooks.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBooks.Name = "cmbBooks";
             this.cmbBooks.Size = new System.Drawing.Size(408, 30);
-            this.cmbBooks.TabIndex = 1;
+            this.cmbBooks.TabIndex = 3;
             this.cmbBooks.UseSelectable = true;
             // 
             // btnBorrow
@@ -88,7 +88,7 @@
             this.btnBorrow.Margin = new System.Windows.Forms.Padding(4);
             this.btnBorrow.Name = "btnBorrow";
             this.btnBorrow.Size = new System.Drawing.Size(191, 34);
-            this.btnBorrow.TabIndex = 2;
+            this.btnBorrow.TabIndex = 5;
             this.btnBorrow.Text = "Borrow Book to Student";
             this.btnBorrow.UseSelectable = true;
             this.btnBorrow.Click += new System.EventHandler(this.BtnBorrow_Click);
@@ -177,7 +177,7 @@
             this.cmbDateToReturn.MinimumSize = new System.Drawing.Size(0, 30);
             this.cmbDateToReturn.Name = "cmbDateToReturn";
             this.cmbDateToReturn.Size = new System.Drawing.Size(408, 30);
-            this.cmbDateToReturn.TabIndex = 7;
+            this.cmbDateToReturn.TabIndex = 4;
             // 
             // txtcriteria
             // 
@@ -206,7 +206,7 @@
             this.txtcriteria.SelectionStart = 0;
             this.txtcriteria.ShortcutsEnabled = true;
             this.txtcriteria.Size = new System.Drawing.Size(291, 28);
-            this.txtcriteria.TabIndex = 9;
+            this.txtcriteria.TabIndex = 1;
             this.txtcriteria.UseSelectable = true;
             this.txtcriteria.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtcriteria.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -218,7 +218,7 @@
             this.btnsearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnsearch.Name = "btnsearch";
             this.btnsearch.Size = new System.Drawing.Size(100, 28);
-            this.btnsearch.TabIndex = 10;
+            this.btnsearch.TabIndex = 2;
             this.btnsearch.Text = "Search";
             this.btnsearch.UseSelectable = true;
             this.btnsearch.Click += new System.EventHandler(this.Btnsearch_Click);

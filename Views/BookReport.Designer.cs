@@ -43,92 +43,101 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 138);
+            this.dataGridView1.Location = new System.Drawing.Point(7, 170);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(784, 305);
+            this.dataGridView1.Size = new System.Drawing.Size(1045, 375);
             this.dataGridView1.TabIndex = 1;
             // 
             // ddlSearchCriteria
             // 
             this.ddlSearchCriteria.FormattingEnabled = true;
-            this.ddlSearchCriteria.ItemHeight = 23;
+            this.ddlSearchCriteria.ItemHeight = 24;
             this.ddlSearchCriteria.Items.AddRange(new object[] {
             "Available By Category",
             "Highest Borrowed "});
-            this.ddlSearchCriteria.Location = new System.Drawing.Point(5, 87);
+            this.ddlSearchCriteria.Location = new System.Drawing.Point(7, 107);
+            this.ddlSearchCriteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ddlSearchCriteria.Name = "ddlSearchCriteria";
-            this.ddlSearchCriteria.Size = new System.Drawing.Size(173, 29);
-            this.ddlSearchCriteria.TabIndex = 4;
+            this.ddlSearchCriteria.Size = new System.Drawing.Size(229, 30);
+            this.ddlSearchCriteria.TabIndex = 1;
             this.ddlSearchCriteria.UseSelectable = true;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(408, 60);
+            this.metroLabel1.Location = new System.Drawing.Point(544, 74);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(44, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(44, 20);
             this.metroLabel1.TabIndex = 5;
             this.metroLabel1.Text = "From:";
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(5, 60);
+            this.metroLabel2.Location = new System.Drawing.Point(7, 74);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(98, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(102, 20);
             this.metroLabel2.TabIndex = 6;
             this.metroLabel2.Text = "Search Criteria:";
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(643, 65);
+            this.metroLabel3.Location = new System.Drawing.Point(857, 80);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(25, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(26, 20);
             this.metroLabel3.TabIndex = 7;
             this.metroLabel3.Text = "To:";
             // 
             // cmbFrom
             // 
-            this.cmbFrom.Location = new System.Drawing.Point(270, 87);
-            this.cmbFrom.MinimumSize = new System.Drawing.Size(0, 29);
+            this.cmbFrom.Location = new System.Drawing.Point(360, 107);
+            this.cmbFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbFrom.MinimumSize = new System.Drawing.Size(0, 30);
             this.cmbFrom.Name = "cmbFrom";
-            this.cmbFrom.Size = new System.Drawing.Size(200, 29);
-            this.cmbFrom.TabIndex = 8;
+            this.cmbFrom.Size = new System.Drawing.Size(265, 30);
+            this.cmbFrom.TabIndex = 2;
             // 
             // cmbTo
             // 
-            this.cmbTo.Location = new System.Drawing.Point(491, 87);
-            this.cmbTo.MinimumSize = new System.Drawing.Size(0, 29);
+            this.cmbTo.Location = new System.Drawing.Point(655, 107);
+            this.cmbTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTo.MinimumSize = new System.Drawing.Size(0, 30);
             this.cmbTo.Name = "cmbTo";
-            this.cmbTo.Size = new System.Drawing.Size(200, 29);
-            this.cmbTo.TabIndex = 9;
+            this.cmbTo.Size = new System.Drawing.Size(265, 30);
+            this.cmbTo.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(702, 85);
+            this.button1.Location = new System.Drawing.Point(936, 105);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 37);
-            this.button1.TabIndex = 10;
+            this.button1.Size = new System.Drawing.Size(100, 46);
+            this.button1.TabIndex = 4;
             this.button1.Text = "Load Report";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(615, 12);
+            this.button2.Location = new System.Drawing.Point(820, 15);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 22);
-            this.button2.TabIndex = 11;
+            this.button2.Size = new System.Drawing.Size(152, 27);
+            this.button2.TabIndex = 5;
             this.button2.Text = "Download Report";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // BookReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbTo);
@@ -138,7 +147,9 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.ddlSearchCriteria);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BookReport";
+            this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Books In Library";
             this.Load += new System.EventHandler(this.BookReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
