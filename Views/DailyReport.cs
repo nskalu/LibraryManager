@@ -135,7 +135,7 @@ namespace LibraryManager.Views
 
                         var bor = (from s in ctx.StudentBooks
                                    join sa in ctx.Books on s.BookId equals sa.BookId
-                                   //where s.DateBorrowed.ToString() == "2020-04-12"//DateTime.Now.Date
+                                   where s.DateBorrowed == DateTime.Now.Date
                                    select new
                                    {
                                       
@@ -145,7 +145,7 @@ namespace LibraryManager.Views
 
                         var ret = (from s in ctx.StudentBooks
                                    join sa in ctx.Books on s.BookId equals sa.BookId
-                                   where s.DateReturned.ToString() == "2020-04-12" //DateTime.Now.Date
+                                   where s.DateReturned == DateTime.Now.Date
                                    select new
                                    {
 
