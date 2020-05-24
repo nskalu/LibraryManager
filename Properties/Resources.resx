@@ -124,8 +124,8 @@
   <data name="swu logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\swu logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="library background image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\library background image.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="002-user-avatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\002-user-avatar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,10 +133,13 @@
   <data name="19-1User-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\19-1User-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="library background image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\library background image1.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="library background image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\library background image.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="f372aa5f-6d92-4027-ab8a-b88fed7327c4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\f372aa5f-6d92-4027-ab8a-b88fed7327c4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

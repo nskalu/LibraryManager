@@ -19,7 +19,7 @@ namespace LibraryManager.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -76,6 +76,16 @@ namespace LibraryManager.Properties {
         internal static System.Drawing.Bitmap _19_1User_512 {
             get {
                 object obj = ResourceManager.GetObject("19-1User-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f372aa5f_6d92_4027_ab8a_b88fed7327c4 {
+            get {
+                object obj = ResourceManager.GetObject("f372aa5f-6d92-4027-ab8a-b88fed7327c4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

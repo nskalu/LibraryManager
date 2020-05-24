@@ -41,12 +41,12 @@
             this.studentBorrowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.booksBorrowedReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentsVisitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.booksReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookBorrowedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,14 +109,14 @@
             // addNewBookToolStripMenuItem
             // 
             this.addNewBookToolStripMenuItem.Name = "addNewBookToolStripMenuItem";
-            this.addNewBookToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.addNewBookToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.addNewBookToolStripMenuItem.Text = "Add New Book";
             this.addNewBookToolStripMenuItem.Click += new System.EventHandler(this.AddNewBookToolStripMenuItem_Click);
             // 
             // existingBookToolStripMenuItem
             // 
             this.existingBookToolStripMenuItem.Name = "existingBookToolStripMenuItem";
-            this.existingBookToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.existingBookToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.existingBookToolStripMenuItem.Text = "Existing Book";
             this.existingBookToolStripMenuItem.Click += new System.EventHandler(this.ExistingBookToolStripMenuItem_Click);
             // 
@@ -154,6 +154,34 @@
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
+            // studentsVisitToolStripMenuItem
+            // 
+            this.studentsVisitToolStripMenuItem.Name = "studentsVisitToolStripMenuItem";
+            this.studentsVisitToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.studentsVisitToolStripMenuItem.Text = "Students Visit";
+            this.studentsVisitToolStripMenuItem.Click += new System.EventHandler(this.studentsVisitToolStripMenuItem_Click);
+            // 
+            // booksReportToolStripMenuItem
+            // 
+            this.booksReportToolStripMenuItem.Name = "booksReportToolStripMenuItem";
+            this.booksReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.booksReportToolStripMenuItem.Text = "Books Report";
+            this.booksReportToolStripMenuItem.Click += new System.EventHandler(this.booksReportToolStripMenuItem_Click);
+            // 
+            // bookBorrowedToolStripMenuItem
+            // 
+            this.bookBorrowedToolStripMenuItem.Name = "bookBorrowedToolStripMenuItem";
+            this.bookBorrowedToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.bookBorrowedToolStripMenuItem.Text = "Book Borrowed";
+            this.bookBorrowedToolStripMenuItem.Click += new System.EventHandler(this.bookBorrowedToolStripMenuItem_Click);
+            // 
+            // dailyToolStripMenuItem
+            // 
+            this.dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
+            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.dailyToolStripMenuItem.Text = "Daily";
+            this.dailyToolStripMenuItem.Click += new System.EventHandler(this.dailyToolStripMenuItem_Click);
+            // 
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -169,46 +197,18 @@
             this.addNewUserToolStripMenuItem.Text = "Add New User";
             this.addNewUserToolStripMenuItem.Click += new System.EventHandler(this.AddNewUserToolStripMenuItem_Click);
             // 
-            // studentsVisitToolStripMenuItem
-            // 
-            this.studentsVisitToolStripMenuItem.Name = "studentsVisitToolStripMenuItem";
-            this.studentsVisitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.studentsVisitToolStripMenuItem.Text = "Students Visit";
-            this.studentsVisitToolStripMenuItem.Click += new System.EventHandler(this.studentsVisitToolStripMenuItem_Click);
-            // 
-            // booksReportToolStripMenuItem
-            // 
-            this.booksReportToolStripMenuItem.Name = "booksReportToolStripMenuItem";
-            this.booksReportToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.booksReportToolStripMenuItem.Text = "Books Report";
-            this.booksReportToolStripMenuItem.Click += new System.EventHandler(this.booksReportToolStripMenuItem_Click);
-            // 
-            // bookBorrowedToolStripMenuItem
-            // 
-            this.bookBorrowedToolStripMenuItem.Name = "bookBorrowedToolStripMenuItem";
-            this.bookBorrowedToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.bookBorrowedToolStripMenuItem.Text = "Book Borrowed";
-            this.bookBorrowedToolStripMenuItem.Click += new System.EventHandler(this.bookBorrowedToolStripMenuItem_Click);
-            // 
-            // dailyToolStripMenuItem
-            // 
-            this.dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
-            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.dailyToolStripMenuItem.Text = "Daily";
-            this.dailyToolStripMenuItem.Click += new System.EventHandler(this.dailyToolStripMenuItem_Click);
-            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::LibraryManager.Properties.Resources.library_background_image1;
+            this.BackgroundImage = global::LibraryManager.Properties.Resources.f372aa5f_6d92_4027_ab8a_b88fed7327c4;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(900, 567);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HomePage";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "HomePage";
