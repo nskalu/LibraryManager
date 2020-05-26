@@ -68,7 +68,8 @@ namespace LibraryManager.Views
 
                 reportViewer1.Visible = true;
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
-                reportViewer1.LocalReport.ReportPath = @"C:\Users\Dell\Source\Repos\LibraryManagerV1\Reports\" + ReportName;
+                //reportViewer1.LocalReport.ReportPath = @"C:\Users\Dell\Source\Repos\LibraryManagerV1\Reports\" + ReportName;
+                reportViewer1.LocalReport.ReportPath = @"..\Reports\" + ReportName;
                 if (dt.Rows.Count > 0)
                 {
                     //ReportDataSource rds = new ReportDataSource(tableName, ds.Tables[0]);
