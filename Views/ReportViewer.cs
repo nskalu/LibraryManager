@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,11 +69,9 @@ namespace LibraryManager.Views
 
                 reportViewer1.Visible = true;
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
-                //reportViewer1.LocalReport.ReportPath = @"C:\Users\Dell\Source\Repos\LibraryManagerV1\Reports\" + ReportName;
-                reportViewer1.LocalReport.ReportPath = @"..\Reports\" + ReportName;
+                reportViewer1.LocalReport.ReportPath = @"..\..\Reports\" + ReportName;
                 if (dt.Rows.Count > 0)
                 {
-                    //ReportDataSource rds = new ReportDataSource(tableName, ds.Tables[0]);
                     ReportDataSource rds = new ReportDataSource(tableName, dt2);
                     reportViewer1.LocalReport.DataSources.Clear();
                     reportViewer1.LocalReport.DataSources.Add(rds);
