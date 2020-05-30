@@ -30,6 +30,8 @@ namespace LibraryManager.Views
         {
             try
             {
+                var TodayDate = DateTime.Now.Date;
+                DateTime? d = new DateTime?(TodayDate);
                 var allRecord = (from st in ctx.StudentBooks
                                  select new
                                  {
@@ -42,8 +44,8 @@ namespace LibraryManager.Views
                               select new
                               {
                                   CurrentDate=DateTime.Now.Date,
-                                  NoBorrowed = allRecord.Where(m=>m.DateBorrowed == DateTime.Now.Date).Count(),
-                                  NoReturned = allRecord.Where(m => m.DateReturned == DateTime.Now.Date).Count()
+                                  NoBorrowed = allRecord.Where(m=>m.DateBorrowed == d).Count(),
+                                  NoReturned = allRecord.Where(m => m.DateReturned == d).Count()
                              
                               }).Distinct().ToList();
 
@@ -69,7 +71,7 @@ namespace LibraryManager.Views
             catch (Exception ex)
             {
 
-                MessageBox.Show("An error occured while loading daily report", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occured while loading the report", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
        
@@ -132,10 +134,12 @@ namespace LibraryManager.Views
                     datasetName = "DailyReport";
                     try
                     {
+                        var TodayDate = DateTime.Now.Date;
+                        DateTime? d = new DateTime?(TodayDate);
 
                         var bor = (from s in ctx.StudentBooks
                                    join sa in ctx.Books on s.BookId equals sa.BookId
-                                   where s.DateBorrowed == DateTime.Now.Date
+                                   where s.DateBorrowed == d
                                    select new
                                    {
                                       
@@ -145,14 +149,18 @@ namespace LibraryManager.Views
 
                         var ret = (from s in ctx.StudentBooks
                                    join sa in ctx.Books on s.BookId equals sa.BookId
-                                   where s.DateReturned == DateTime.Now.Date
+                                   where s.DateReturned == d
                                    select new
                                    {
 
                                        Returned = sa.Title + " " + sa.Author,
                                    }).
                               OrderBy(m => m.Returned).ToList();
-
+                        if (bor.Count() ==0 && ret.Count() == 0)
+                        {
+                            MessageBox.Show("No books were borrowed or returned today", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         var r = JsonConvert.SerializeObject(ret);
                         var b = JsonConvert.SerializeObject(bor);
                         dt = JsonConvert.DeserializeObject<DataTable>(r);
@@ -165,16 +173,31 @@ namespace LibraryManager.Views
 
                         dt2.Rows.Add();
                         dt2.Rows[0][0] = DateTime.Now.ToString("dddd, dd MMMM yyyy");
-                        for (int i= 0; i<=dt1.Rows.Count-1; i++)
+                        if (dt1.Rows.Count > 0)
                         {
-                            dt2.Rows[i][1] = dt1.Rows[i][0];
-                            dt2.Rows.Add();
+
+                            for (int i= 0; i<=dt1.Rows.Count-1; i++)
+                            {
+                                dt2.Rows[i][1] = dt1.Rows[i][0];
+                                dt2.Rows.Add();
+                            }
                         }
-                        for (int i = 0; i <= dt.Rows.Count-1; i++)
+                        else
                         {
-                            dt2.Rows[i][2] = dt.Rows[i][0];
+                            dt2.Rows[0][1] = "Nil";
                         }
 
+                        if (dt1.Rows.Count > 0)
+                        {
+                            for (int i = 0; i <= dt.Rows.Count - 1; i++)
+                            {
+                                dt2.Rows[i][2] = dt.Rows[i][0];
+                            }
+                        }
+                        else
+                        {
+                            dt2.Rows[0][2] = "Nil";
+                        }
                         ReportViewer rp = new ReportViewer(ReportName, dt2, datasetName);
                         rp.StartPosition = FormStartPosition.CenterScreen;
                         rp.Show();
