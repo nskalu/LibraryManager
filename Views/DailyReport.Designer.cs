@@ -35,6 +35,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.gdvReturned = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.ddlDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -46,14 +48,14 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 101);
+            this.groupBox1.Location = new System.Drawing.Point(16, 117);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(444, 150);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Daily/Weekly Report";
+            this.groupBox1.Text = "Daily Report";
             // 
             // dataGridView1
             // 
@@ -117,11 +119,30 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // ddlDatePicker
+            // 
+            this.ddlDatePicker.Location = new System.Drawing.Point(104, 80);
+            this.ddlDatePicker.Name = "ddlDatePicker";
+            this.ddlDatePicker.Size = new System.Drawing.Size(343, 22);
+            this.ddlDatePicker.TabIndex = 4;
+            this.ddlDatePicker.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Filter By:";
+            // 
             // DailyReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 572);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ddlDatePicker);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -137,6 +158,7 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gdvReturned)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -149,5 +171,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView gdvReturned;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker ddlDatePicker;
+        private System.Windows.Forms.Label label1;
     }
 }

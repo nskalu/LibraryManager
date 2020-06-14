@@ -345,6 +345,7 @@
       <DependentUpon>LibraryDbModel.edmx</DependentUpon>
       <LastGenOutput>LibraryDbModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\f372aa5f-6d92-4027-ab8a-b88fed7327c4.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

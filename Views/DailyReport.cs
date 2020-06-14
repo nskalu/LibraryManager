@@ -24,14 +24,14 @@ namespace LibraryManager.Views
         {
             InitializeComponent();
             ctx = _ctx;
-            LoadGrid();
+            LoadGrid(DateTime.Now.Date);
         }
-        private void LoadGrid()
+        private void LoadGrid(DateTime date)
         {
             try
             {
-                var TodayDate = DateTime.Now.Date;
-                DateTime? d = new DateTime?(TodayDate);
+                DateTime? d = new DateTime?(date);
+                string currDate = d.ToString();
                 var allRecord = (from st in ctx.StudentBooks
                                  select new
                                  {
@@ -43,9 +43,9 @@ namespace LibraryManager.Views
                 var output = (from r in allRecord
                               select new
                               {
-                                  CurrentDate=DateTime.Now.Date,
-                                  NoBorrowed = allRecord.Where(m=>m.DateBorrowed == d).Count(),
-                                  NoReturned = allRecord.Where(m => m.DateReturned == d).Count()
+                                  CurrentDate=currDate,
+                                  NoBorrowed = allRecord.Where(m=>m.DateBorrowed.ToString() == currDate).Count(),
+                                  NoReturned = allRecord.Where(m => m.DateReturned.ToString() == currDate).Count()
                              
                               }).Distinct().ToList();
 
@@ -124,6 +124,11 @@ namespace LibraryManager.Views
             }
         }
 
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            LoadGrid(ddlDatePicker.Value);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -158,7 +163,7 @@ namespace LibraryManager.Views
                               OrderBy(m => m.Returned).ToList();
                         if (bor.Count() ==0 && ret.Count() == 0)
                         {
-                            MessageBox.Show("No books were borrowed or returned today", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("No books were borrowed or returned today, No report available", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
                         var r = JsonConvert.SerializeObject(ret);
