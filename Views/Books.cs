@@ -76,6 +76,7 @@ namespace LibraryManager
 
         private void LoadGrid()
         {
+            dataGridView1.Columns.Clear();
             try
             {
                 var response = ctx.Books.Select(c => new
@@ -89,7 +90,24 @@ namespace LibraryManager
                 if (response != null)
                 {
                     dataGridView1.DataSource = response;
-               
+                    DataGridViewButtonColumn button = new DataGridViewButtonColumn();
+                    {
+                        button.Name = "actionButton";
+                        button.HeaderText = "Action";
+                        button.Text = "Delete";
+
+                        button.ToolTipText = "Delete Book";
+                        button.DefaultCellStyle.ForeColor = Color.Red;
+                        button.UseColumnTextForButtonValue = true;
+                        if (!dataGridView1.Columns.Contains("actionButton"))
+                        {
+
+                            dataGridView1.Columns.Add(button);
+
+                        }
+
+                    }
+
                 }
                 else
                 {
@@ -265,6 +283,51 @@ namespace LibraryManager
 
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Are you sure you want to delete this book record?", "Delete Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (e.ColumnIndex == dataGridView1.Columns["actionButton"].Index)
+                    {
+                        int index = e.RowIndex;
+                        var selectedRow = dataGridView1.Rows[index];
+                        //var id = selectedRow.Cells[3].Value.ToString();
+                        //i used an extension method here instead of above line cos the isbn cell value was not consistent, sths it returns the qty value
+                        var isbn = selectedRow.Cells.GetCellValueFromColumnHeader("ISBN").ToString();
+                       
+                        var book = ctx.Books.Where(m => m.ISBN == isbn).FirstOrDefault();
+                        var rec = ctx.StudentBooks.Where(m => m.BookId == book.BookId).ToList();
+                        if (rec.Any())
+                        {
+                            MessageBox.Show("Sorry! This record cannot be deleted because it has a borrow history", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                        ctx.Books.Remove(book);
+                        ctx.SaveChanges();
+                        MessageBox.Show("Book deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadGrid();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("An error occured while deleting", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+       
+    }
+
+    public static class DataGridHelper
+    {
+        public static object GetCellValueFromColumnHeader(this DataGridViewCellCollection CellCollection, string HeaderText)
+        {
+            return CellCollection.Cast<DataGridViewCell>().First(c => c.OwningColumn.HeaderText == HeaderText).Value;
         }
     }
 }

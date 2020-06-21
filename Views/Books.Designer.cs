@@ -60,7 +60,7 @@
             // txtTitle
             // 
             this.txtTitle.Location = new System.Drawing.Point(143, 38);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(384, 22);
             this.txtTitle.TabIndex = 1;
@@ -68,7 +68,7 @@
             // txtQty
             // 
             this.txtQty.Location = new System.Drawing.Point(143, 134);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtQty.Margin = new System.Windows.Forms.Padding(4);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(384, 22);
             this.txtQty.TabIndex = 4;
@@ -76,7 +76,7 @@
             // txtISBN
             // 
             this.txtISBN.Location = new System.Drawing.Point(143, 102);
-            this.txtISBN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtISBN.Margin = new System.Windows.Forms.Padding(4);
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.Size = new System.Drawing.Size(384, 22);
             this.txtISBN.TabIndex = 3;
@@ -84,7 +84,7 @@
             // txtAuthor
             // 
             this.txtAuthor.Location = new System.Drawing.Point(143, 70);
-            this.txtAuthor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(384, 22);
             this.txtAuthor.TabIndex = 2;
@@ -93,9 +93,9 @@
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(597, 135);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(716, 351);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
@@ -105,10 +105,11 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(8, 38);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(692, 305);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // groupBox2
             // 
@@ -124,9 +125,9 @@
             this.groupBox2.Controls.Add(this.txtQty);
             this.groupBox2.Controls.Add(this.txtISBN);
             this.groupBox2.Location = new System.Drawing.Point(49, 102);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(536, 252);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
@@ -136,7 +137,7 @@
             // 
             this.ddlCategory.FormattingEnabled = true;
             this.ddlCategory.Location = new System.Drawing.Point(143, 166);
-            this.ddlCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ddlCategory.Margin = new System.Windows.Forms.Padding(4);
             this.ddlCategory.Name = "ddlCategory";
             this.ddlCategory.Size = new System.Drawing.Size(384, 24);
             this.ddlCategory.TabIndex = 5;
@@ -154,7 +155,7 @@
             // metroButton1
             // 
             this.metroButton1.Location = new System.Drawing.Point(212, 207);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(235, 28);
             this.metroButton1.TabIndex = 6;
@@ -208,9 +209,9 @@
             this.groupBox3.Controls.Add(this.metroButton2);
             this.groupBox3.Controls.Add(this.metroLabel5);
             this.groupBox3.Location = new System.Drawing.Point(48, 362);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(537, 112);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
@@ -219,7 +220,7 @@
             // btnChoose
             // 
             this.btnChoose.Location = new System.Drawing.Point(144, 38);
-            this.btnChoose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChoose.Margin = new System.Windows.Forms.Padding(4);
             this.btnChoose.Name = "btnChoose";
             this.btnChoose.Size = new System.Drawing.Size(171, 28);
             this.btnChoose.TabIndex = 15;
@@ -230,7 +231,7 @@
             // metroButton2
             // 
             this.metroButton2.Location = new System.Drawing.Point(347, 38);
-            this.metroButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButton2.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(183, 28);
             this.metroButton2.TabIndex = 11;
@@ -256,7 +257,7 @@
             // btnCategory
             // 
             this.btnCategory.Location = new System.Drawing.Point(1160, 60);
-            this.btnCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(148, 28);
             this.btnCategory.TabIndex = 8;
@@ -277,7 +278,7 @@
             // txtCategory
             // 
             this.txtCategory.Location = new System.Drawing.Point(755, 62);
-            this.txtCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCategory.Margin = new System.Windows.Forms.Padding(4);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(384, 22);
             this.txtCategory.TabIndex = 7;
@@ -294,7 +295,7 @@
             this.Controls.Add(this.txtCategory);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Books";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Register a Book";
