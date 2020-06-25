@@ -320,7 +320,10 @@ namespace LibraryManager
             }
         }
 
-       
+        private void BtnDownload_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public static class DataGridHelper

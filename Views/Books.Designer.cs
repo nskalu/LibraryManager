@@ -51,6 +51,7 @@
             this.btnCategory = new MetroFramework.Controls.MetroButton();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.txtCategory = new System.Windows.Forms.TextBox();
+            this.btnDownload = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -205,6 +206,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnDownload);
             this.groupBox3.Controls.Add(this.btnChoose);
             this.groupBox3.Controls.Add(this.metroButton2);
             this.groupBox3.Controls.Add(this.metroLabel5);
@@ -219,7 +221,7 @@
             // 
             // btnChoose
             // 
-            this.btnChoose.Location = new System.Drawing.Point(144, 38);
+            this.btnChoose.Location = new System.Drawing.Point(144, 46);
             this.btnChoose.Margin = new System.Windows.Forms.Padding(4);
             this.btnChoose.Name = "btnChoose";
             this.btnChoose.Size = new System.Drawing.Size(171, 28);
@@ -230,7 +232,7 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(347, 38);
+            this.metroButton2.Location = new System.Drawing.Point(347, 46);
             this.metroButton2.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(183, 28);
@@ -242,7 +244,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(5, 38);
+            this.metroLabel5.Location = new System.Drawing.Point(5, 48);
             this.metroLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(84, 20);
@@ -282,6 +284,17 @@
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(384, 22);
             this.txtCategory.TabIndex = 7;
+            // 
+            // btnDownload
+            // 
+            this.btnDownload.Location = new System.Drawing.Point(345, 11);
+            this.btnDownload.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(183, 28);
+            this.btnDownload.TabIndex = 16;
+            this.btnDownload.Text = "Download Sample";
+            this.btnDownload.UseSelectable = true;
+            this.btnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
             // 
             // Books
             // 
@@ -333,6 +346,7 @@
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.ComboBox ddlCategory;
         private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroButton btnDownload;
     }
 }
 
