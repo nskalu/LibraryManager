@@ -44,14 +44,13 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnDownload = new MetroFramework.Controls.MetroButton();
             this.btnChoose = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnCategory = new MetroFramework.Controls.MetroButton();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.txtCategory = new System.Windows.Forms.TextBox();
-            this.btnDownload = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -209,7 +208,6 @@
             this.groupBox3.Controls.Add(this.btnDownload);
             this.groupBox3.Controls.Add(this.btnChoose);
             this.groupBox3.Controls.Add(this.metroButton2);
-            this.groupBox3.Controls.Add(this.metroLabel5);
             this.groupBox3.Location = new System.Drawing.Point(48, 362);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
@@ -219,12 +217,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Upload Excel";
             // 
+            // btnDownload
+            // 
+            this.btnDownload.Location = new System.Drawing.Point(345, 11);
+            this.btnDownload.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(183, 28);
+            this.btnDownload.TabIndex = 16;
+            this.btnDownload.Text = "Download Sample";
+            this.btnDownload.UseSelectable = true;
+            this.btnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
+            // 
             // btnChoose
             // 
-            this.btnChoose.Location = new System.Drawing.Point(144, 46);
+            this.btnChoose.Location = new System.Drawing.Point(8, 46);
             this.btnChoose.Margin = new System.Windows.Forms.Padding(4);
             this.btnChoose.Name = "btnChoose";
-            this.btnChoose.Size = new System.Drawing.Size(171, 28);
+            this.btnChoose.Size = new System.Drawing.Size(307, 28);
             this.btnChoose.TabIndex = 15;
             this.btnChoose.Text = "Choose file..";
             this.btnChoose.UseSelectable = true;
@@ -240,16 +249,6 @@
             this.metroButton2.Text = "Upload";
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.MetroButton2_Click);
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(5, 48);
-            this.metroLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(84, 20);
-            this.metroLabel5.TabIndex = 14;
-            this.metroLabel5.Text = "Choose file..";
             // 
             // openFileDialog1
             // 
@@ -285,17 +284,6 @@
             this.txtCategory.Size = new System.Drawing.Size(384, 22);
             this.txtCategory.TabIndex = 7;
             // 
-            // btnDownload
-            // 
-            this.btnDownload.Location = new System.Drawing.Point(345, 11);
-            this.btnDownload.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(183, 28);
-            this.btnDownload.TabIndex = 16;
-            this.btnDownload.Text = "Download Sample";
-            this.btnDownload.UseSelectable = true;
-            this.btnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
-            // 
             // Books
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -317,7 +305,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,7 +326,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private MetroFramework.Controls.MetroButton btnChoose;
         private MetroFramework.Controls.MetroButton metroButton2;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private MetroFramework.Controls.MetroButton btnCategory;
         private MetroFramework.Controls.MetroLabel metroLabel6;

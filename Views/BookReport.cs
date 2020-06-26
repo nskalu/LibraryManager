@@ -65,13 +65,11 @@ namespace LibraryManager.Views
         {
             try
             {
-                object response;
+                
                 if (ddlSearchCriteria.SelectedIndex == 0)
                 {
                     //available
-                    
-
-                     response = (from b in ctx.Books
+                     var response = (from b in ctx.Books
                                     join c in ctx.Categories on b.CategoryId equals c.Id
                                     where (b.QtyAvailable > 0)
                                     orderby (c.CategoryName)
@@ -87,13 +85,22 @@ namespace LibraryManager.Views
 
                     ReportName = "Available.rdlc";
                     datasetName = "Available";
+                    if (response != null)
+                    {
+                        dataGridView1.DataSource = response;
+
+                    }
+                    else
+                    {
+                        dataGridView1.Visible = false;
+                    }
                 }
                 else
                 {
                     //highest borrowed
 
 
-                    response = (from b in ctx.Books
+                    var response = (from b in ctx.Books
                                                    join c in ctx.StudentBooks on b.BookId equals c.BookId
                                                    where (c.DateBorrowed >= cmbFrom.Value && c.DateBorrowed <= cmbTo.Value)
                                                    orderby b.TimesBorowed descending
@@ -109,18 +116,18 @@ namespace LibraryManager.Views
 
                     ReportName = "AllBooks.rdlc";
                     datasetName = "TimesBorrowed";
+                    if (response != null)
+                    {
+                        dataGridView1.DataSource = response;
+                    }
+                    else
+                    {
+                        dataGridView1.Visible = false;
+                    }
 
                 }
 
-                if (response != null)
-                {
-                    dataGridView1.DataSource = response;
-                    
-                }
-                else
-                {
-                    dataGridView1.Visible = false;
-                }
+                
             }
             catch (Exception ex)
             {

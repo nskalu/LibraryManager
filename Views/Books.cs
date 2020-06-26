@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using LibraryManager.Models;
 using MetroFramework.Forms;
 using ClosedXML.Excel;
+using System.Net;
 
 namespace LibraryManager
 {
@@ -175,25 +176,42 @@ namespace LibraryManager
                 }
                 else
                 {
-                    int first = 1, last = 4;
-                    int rowIndex = 0;
-                    bool firstRow = true;
+                    bool firstRow = true; bool firstRow2 = true;
                     DataTable dt = new DataTable();
                     int count = 0;
                     using (XLWorkbook workBook = new XLWorkbook(filee))
                     {
-
+                        var cats = ctx.Categories.ToList();
+                        var categories = cats.Select(x => x.CategoryName);
                         //Read the first Sheet from Excel file.
                         IXLWorksheet workSheet = workBook.Worksheet(1);
                         foreach (IXLRow row in workSheet.Rows())
                         {
-
                             if (firstRow)
                             {
 
-                              firstRow = false;
+                                firstRow = false;
                             }
-                            else {
+                            else
+                            {
+                                var i = row.Cell(6).Value.ToString();
+                                if  (!categories.Contains(row.Cell(6).Value.ToString().Trim()))
+                                {
+                                    MessageBox.Show("Ensure that all category names listed in the excel sheet are already registered on the system. click on the Category drop down to see registered categories, or add a new category in the Create Category section above.", "Unable to Upload!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    return;
+                                }
+                            }
+                           
+                        }
+                        foreach (IXLRow row in workSheet.Rows())
+                        {
+
+                            if (firstRow2)
+                            {
+
+                              firstRow2 = false;
+                            }
+                            else 
                           
                             {
                                 string title = row.Cell(2).Value.ToString();
@@ -208,14 +226,15 @@ namespace LibraryManager
                                     using (var ctx = new LibraryManagerEntities())
                                     {
                                             string qty = row.Cell(5).Value.ToString();
-                                            
+
                                         ctx.Books.Add(new Book()
                                         {
                                             Author = row.Cell(4).Value.ToString(),
                                             ISBN = row.Cell(3).Value.ToString(),
                                             QtyEntered = Int32.Parse(qty),
                                             QtyAvailable = Int32.Parse(qty),
-                                            Title = row.Cell(2).Value.ToString()
+                                            Title = row.Cell(2).Value.ToString(),
+                                            CategoryId = cats.Where(x => x.CategoryName == row.Cell(6).Value.ToString().Trim()).FirstOrDefault().Id
 
                                         });
 
@@ -227,7 +246,8 @@ namespace LibraryManager
                              
 
                             }
-                            }
+                            
+
 
                         }
 
@@ -239,8 +259,10 @@ namespace LibraryManager
 
             catch (Exception ex)
             {
-
-                MessageBox.Show("An error occured while uploading the file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Message.Contains("The process cannot access the file"))
+                    MessageBox.Show("Close the excel file and try again", "Unable to Upload", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                else
+                    MessageBox.Show("An error occured while uploading the file, Ensure the excel sheet is properly formatted or contact the vendor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -322,7 +344,17 @@ namespace LibraryManager
 
         private void BtnDownload_Click(object sender, EventArgs e)
         {
-
+            string remoteUri = @"..\..\Shared\";
+            string fileName = "BookUploadTemplate.xlsx", myStringWebResource = null;
+            // Create a new WebClient instance.
+            WebClient myWebClient = new WebClient();
+            // Concatenate the domain with the Web resource filename.
+            myStringWebResource = remoteUri + fileName;
+            // Download the Web resource and save it into the current filesystem folder.
+            myWebClient.DownloadFile(myStringWebResource, fileName);
+            string msg = "\nDownloaded file saved in the following file system folder:\n\t" + Application.StartupPath;
+            MessageBox.Show(msg, "Download Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            
         }
     }
 
