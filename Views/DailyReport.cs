@@ -133,13 +133,11 @@ namespace LibraryManager.Views
         {
             try
             {
-                try
-                {
                     ReportName = "DailyReport.rdlc";
                     datasetName = "DailyReport";
                     try
                     {
-                        var TodayDate = DateTime.Now.Date;
+                        var TodayDate = DateTime.ParseExact("20/06/2020", "dd/MM/yyyy", null);//DateTime.Now.Date;
                         DateTime? d = new DateTime?(TodayDate);
 
                         var bor = (from s in ctx.StudentBooks
@@ -148,7 +146,7 @@ namespace LibraryManager.Views
                                    select new
                                    {
                                       
-                                       Borrowed= sa.Title + " "+sa.Author,
+                                       Borrowed= sa.Title + " by "+sa.Author,
                                    }).
                                    OrderBy(m => m.Borrowed).ToList();
 
@@ -158,7 +156,7 @@ namespace LibraryManager.Views
                                    select new
                                    {
 
-                                       Returned = sa.Title + " " + sa.Author,
+                                       Returned = sa.Title + " by " + sa.Author,
                                    }).
                               OrderBy(m => m.Returned).ToList();
                         if (bor.Count() ==0 && ret.Count() == 0)
@@ -213,17 +211,12 @@ namespace LibraryManager.Views
 
                         MessageBox.Show("An error occured while loading the report viewer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
-                catch (Exception)
-                {
-
-                    MessageBox.Show("An error occured while loading the report viewer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+               
             }
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("An error occured while loading the report viewer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

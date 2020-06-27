@@ -41,7 +41,8 @@ namespace LibraryManager.Views
                         button.Name = "actionButton";
                         button.HeaderText = "Action";
                         button.Text = "Print Access Card";
-                        button.UseColumnTextForButtonValue = true;                         
+                        button.UseColumnTextForButtonValue = true; 
+                        
                         dataGridView1.Columns.Add(button);
                     }
                 }
@@ -82,24 +83,13 @@ namespace LibraryManager.Views
                         //Using Student Info to generate QR
                         var stdId = Guid.NewGuid();
                         string makeStudentQR = $"{txtmatricNo.Text}";
-                        //string makeStudentQR = $"{txtfirstName.Text}|{txtsurname.Text}|" +
-                        //    $"{txtemail.Text}|{txtmatricNo.Text}|{txtlastName.Text}|" +
-                        //    $"{txtNumber.Text}|{stdId.ToString()}";
-
-                        //var getStudentQR = getQRCode(makeStudentQR);
-                        //byte[] imageByte = null;
-                        //using (var ms = new MemoryStream())
-                        //{
-                        //    getStudentQR.Save(ms, getStudentQR.RawFormat);
-                        //    imageByte = ms.ToArray();
-                        //}
                         //Saving student Info to DB
                         ctx.Students.Add(new Student()
                         {
                             FirstName = txtfirstName.Text,
                             LastName = txtsurname.Text,
                             CreatedBy = 1,
-                            DateCreated = DateTime.Now,
+                            DateCreated = DateTime.Now.Date,
                             Email = txtemail.Text,
                             MatricNo = txtmatricNo.Text,
                             MiddleName = txtlastName.Text,
@@ -188,16 +178,15 @@ namespace LibraryManager.Views
                     var JsonR = Newtonsoft.Json.JsonConvert.DeserializeObject<StudentVM>(Json);
                     //Use Student Email to Load Data
                     var getUserByEmail = ctx.Students.Where(c => c.Email == JsonR.Email).SingleOrDefault();
-                    IdCardView b = new IdCardView(getUserByEmail);
-                    //b.StartPosition = this;
-                    //b.StartPosition = FormStartPosition.CenterScreen;
-                    b.Show();
+                    //IdCardView b = new IdCardView(getUserByEmail);
+                    IDCardViewer id = new IDCardViewer(getUserByEmail);
+                    id.Show();
                 }
 
             }
             catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Error while printing access card", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

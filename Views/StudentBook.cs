@@ -174,9 +174,10 @@ namespace LibraryManager.Views
         private void BtnBorrow_Click(object sender, EventArgs e)
         {
             string matric = lblMatric.Text;
-            var studentId = Guid.Parse(lblID.Text);//enter the student id here
+            
             try
             {
+                var studentId = Guid.Parse(lblID.Text);//enter the student id here
                 if (cmbBooks.SelectedValue == null)
                 {
                     MessageBox.Show("Please select a book", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -246,7 +247,7 @@ namespace LibraryManager.Views
                     var id = selectedRow.Cells[0].Value;
                     var data = ctx.StudentBooks.Where(m => m.Id == (int)id).FirstOrDefault();
                     data.IsReturned = true;
-                    data.DateReturned = DateTime.Now;
+                    data.DateReturned = DateTime.Now.Date;
                     var book = ctx.Books.Where(m => m.BookId == data.BookId).FirstOrDefault();
                     book.QtyAvailable = ++book.QtyAvailable;
                     ctx.SaveChanges();

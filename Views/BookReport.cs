@@ -45,7 +45,7 @@ namespace LibraryManager.Views
                 if (response != null)
                 {
                     dataGridView1.DataSource = response;
-                    ReportName = "Registered";
+                    ReportName = "Registered.rdlc";
                     datasetName = "Registered";
 
                 }
@@ -112,7 +112,7 @@ namespace LibraryManager.Views
                                                        b.QtyEntered,
                                                        b.QtyAvailable,
                                                        TimesBorrowed=b.TimesBorowed
-                                                   }).ToList();
+                                                   }).Distinct().ToList();
 
                     ReportName = "AllBooks.rdlc";
                     datasetName = "TimesBorrowed";
