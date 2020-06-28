@@ -179,8 +179,9 @@ namespace LibraryManager.Views
                     //Use Student Email to Load Data
                     var getUserByEmail = ctx.Students.Where(c => c.Email == JsonR.Email).SingleOrDefault();
                     //IdCardView b = new IdCardView(getUserByEmail);
-                    IDCardViewer id = new IDCardViewer(getUserByEmail);
-                    id.Show();
+                    IDCardViewer rp = new IDCardViewer(getUserByEmail);
+                    rp.StartPosition = FormStartPosition.CenterScreen;
+                    rp.Show();
                 }
 
             }

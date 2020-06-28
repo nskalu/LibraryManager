@@ -81,7 +81,7 @@ namespace LibraryManager.Views
                                         b.ISBN,
                                         b.QtyEntered,
                                         b.QtyAvailable
-                                    });
+                                    }).ToList();
 
                     ReportName = "Available.rdlc";
                     datasetName = "Available";
@@ -102,8 +102,7 @@ namespace LibraryManager.Views
 
                     var response = (from b in ctx.Books
                                                    join c in ctx.StudentBooks on b.BookId equals c.BookId
-                                                   where (c.DateBorrowed >= cmbFrom.Value && c.DateBorrowed <= cmbTo.Value)
-                                                   orderby b.TimesBorowed descending
+                                                   where (c.DateBorrowed >= cmbFrom.Value && c.DateBorrowed <= cmbTo.Value && b.TimesBorowed>1) 
                                                    select new
                                                    {
                                                        b.Title,
@@ -112,7 +111,7 @@ namespace LibraryManager.Views
                                                        b.QtyEntered,
                                                        b.QtyAvailable,
                                                        TimesBorrowed=b.TimesBorowed
-                                                   }).Distinct().ToList();
+                                                   }).Distinct().OrderByDescending(m=>m.TimesBorrowed) .ToList();
 
                     ReportName = "AllBooks.rdlc";
                     datasetName = "TimesBorrowed";
@@ -140,6 +139,9 @@ namespace LibraryManager.Views
         {
             try
             {
+                dt.Clear();
+                dt.Columns.Clear();
+                dt.Rows.Clear();
                 DataColumn col;
                 foreach (DataGridViewColumn dgvCol in dataGridView1.Columns)
                 {

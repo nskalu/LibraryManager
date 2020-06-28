@@ -37,14 +37,14 @@
             this.reportViewer1.Location = new System.Drawing.Point(12, 2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(523, 343);
+            this.reportViewer1.Size = new System.Drawing.Size(660, 343);
             this.reportViewer1.TabIndex = 0;
             // 
             // IDCardViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 360);
+            this.ClientSize = new System.Drawing.Size(684, 360);
             this.Controls.Add(this.reportViewer1);
             this.Name = "IDCardViewer";
             this.Text = "IDCardViewer";

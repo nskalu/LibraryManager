@@ -97,7 +97,15 @@ namespace LibraryManager.Views
                     var res = (from s in ctx.StudentBooks
                                join sa in ctx.Books on s.BookId equals sa.BookId
                                where s.StudentId == (Guid)StudentId
-                               select new { sa.Title, sa.Author, sa.ISBN, s.DateBorrowed, s.DateToReturn, s.DateReturned, HasReturned=s.IsReturned  }).ToList();
+                               select new
+                               { sa.Title,
+                                 sa.Author,
+                                 sa.ISBN,
+                                 s.DateBorrowed,
+                                 s.DateToReturn,
+                                 s.DateReturned,
+                                 HasReturned = s.IsReturned == true ? "Yes" : "No"
+                               }).ToList();
 
                     if (res.Count() > 0)
                     {

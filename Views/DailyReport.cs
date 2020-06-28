@@ -38,7 +38,7 @@ namespace LibraryManager.Views
                                     st.BookId,
                                     st.DateBorrowed,
                                     st.DateReturned,
-                                 });
+                                 }).ToList();
 
                 var output = (from r in allRecord
                               select new
@@ -86,16 +86,17 @@ namespace LibraryManager.Views
                 {
                     //Do something with your button.
 
-                 
 
+                    DateTime? d = DateTime.Today;
+                    string currDate = d.ToString().Substring(0,10);
                     var borrowed = (from s in ctx.StudentBooks
                                join sa in ctx.Books on s.BookId equals sa.BookId
-                               where s.DateBorrowed== DateTime.Now.Date
+                               where s.DateBorrowed.ToString().Substring(0,10)== currDate
                                select new { sa.Title, sa.Author, sa.ISBN, s.DateBorrowed, s.DateToReturn}).ToList();
 
                     var returned = (from s in ctx.StudentBooks
                                join sa in ctx.Books on s.BookId equals sa.BookId
-                               where s.DateReturned == DateTime.Now.Date
+                               where s.DateReturned.ToString() == currDate
                                select new { sa.Title, sa.Author, sa.ISBN, s.DateBorrowed, s.DateReturned }).ToList();
 
                     if (borrowed.Count() > 0)
@@ -126,6 +127,7 @@ namespace LibraryManager.Views
 
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            dataGridView1.Columns.Clear();
             LoadGrid(ddlDatePicker.Value);
         }
 
@@ -137,7 +139,7 @@ namespace LibraryManager.Views
                     datasetName = "DailyReport";
                     try
                     {
-                        var TodayDate = DateTime.ParseExact("20/06/2020", "dd/MM/yyyy", null);//DateTime.Now.Date;
+                        var TodayDate = DateTime.Now.Date; 
                         DateTime? d = new DateTime?(TodayDate);
 
                         var bor = (from s in ctx.StudentBooks

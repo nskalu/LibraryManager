@@ -18,7 +18,7 @@ namespace LibraryManager.Views
         public IDCardViewer(Student student)
         {
             InitializeComponent();
-            //pictureBox1.Image = getQRCode(student.qrcode);
+            getBarCode(student.qrcode);
             LoadReport(student);
         }
 
@@ -27,7 +27,7 @@ namespace LibraryManager.Views
 
             this.reportViewer1.RefreshReport();
         }
-        Image getBarCode(string data)
+        void getBarCode(string data)
         {
             BarcodeWriter wr = new BarcodeWriter();
 
@@ -38,8 +38,9 @@ namespace LibraryManager.Views
             wr.Write(data).Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
 
             Bitmap bmp = new Bitmap(ms);
+            bmp.Save(@"C:\img\test.jpg");
 
-            return bmp;
+            //return bmp;
 
         }
 
@@ -47,14 +48,13 @@ namespace LibraryManager.Views
         {
             try
             {
-
                 ReportParameter rp = new ReportParameter("Name", $"{student.LastName} {student.FirstName} {student.MiddleName}");
                 ReportParameter rps = new ReportParameter("MatricNo", student.MatricNo);
-                ReportParameter pic = new ReportParameter("Barcode", getBarCode(student.qrcode));
-                this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { rp });
-                this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { rps });
-                this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { pic });
+                ReportParameter pic = new ReportParameter("Barcode", new Uri(@"C:\img\test.jpg").AbsoluteUri);
                 reportViewer1.LocalReport.EnableExternalImages = true;
+                reportViewer1.LocalReport.SetParameters(new ReportParameter[] { rp, rps, pic });
+                //this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { rps });
+                //this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { pic });
                 reportViewer1.Visible = true;
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
               
