@@ -149,6 +149,7 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>LibraryDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Shared\Global.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewModels\BookVM.cs" />
     <Compile Include="ViewModels\StudentBook.cs" />

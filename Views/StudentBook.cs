@@ -83,6 +83,7 @@ namespace LibraryManager.Views
                 if (data == null)
                 {
                     MessageBox.Show("This Matric Number Has Not Been Registered", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lblID.Text = new Guid().ToString();
                     return;
                 }
                 var StudentId = data.StudentId;
@@ -174,7 +175,6 @@ namespace LibraryManager.Views
         private void BtnBorrow_Click(object sender, EventArgs e)
         {
             string matric = lblMatric.Text;
-            
             try
             {
                 var studentId = Guid.Parse(lblID.Text);//enter the student id here

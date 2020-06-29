@@ -1,4 +1,5 @@
 ﻿using LibraryManager.Models;
+using LibraryManager.Shared;
 using LibraryManager.ViewModels;
 using MetroFramework.Forms;
 using System;
@@ -182,6 +183,8 @@ namespace LibraryManager.Views
                     IDCardViewer rp = new IDCardViewer(getUserByEmail);
                     rp.StartPosition = FormStartPosition.CenterScreen;
                     rp.Show();
+                    if (Directory.Exists(@"C:\" + Global.GlobalVar))
+                        Directory.Delete(@"C:\" + Global.GlobalVar, true);
                 }
 
             }

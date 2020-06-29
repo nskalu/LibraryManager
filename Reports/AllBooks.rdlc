@@ -106,7 +106,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.76264in</Top>
-        <Left>1.71875in</Left>
+        <Left>2.09375in</Left>
         <Height>0.29167in</Height>
         <Width>3.0625in</Width>
         <ZIndex>2</ZIndex>
@@ -124,22 +124,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.92798in</Width>
+              <Width>1.78215in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.10632in</Width>
+              <Width>1.79097in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.79688in</Width>
+              <Width>1.20105in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.36674in</Width>
+              <Width>0.89591in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>0.84583in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.02083in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -537,9 +537,9 @@
         </TablixRowHierarchy>
         <DataSetName>TimesBorrowed</DataSetName>
         <Top>1.85292in</Top>
-        <Left>0.54042in</Left>
+        <Left>0.41542in</Left>
         <Height>0.75in</Height>
-        <Width>6.19792in</Width>
+        <Width>7.53674in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -564,7 +564,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>1.29104in</Top>
-        <Left>1.59375in</Left>
+        <Left>2.09375in</Left>
         <Height>0.25in</Height>
         <Width>3.34375in</Width>
         <ZIndex>4</ZIndex>
@@ -582,7 +582,7 @@
     <Height>3.14458in</Height>
     <Style />
   </Body>
-  <Width>7.48833in</Width>
+  <Width>8.07716in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

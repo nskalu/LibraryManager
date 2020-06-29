@@ -111,12 +111,12 @@
           </Textbox>
           <Image Name="Barcode">
             <Source>External</Source>
-            <Value>=</Value>
+            <Value>=Parameters!Barcode.Value</Value>
             <Sizing>FitProportional</Sizing>
             <Top>1.58368in</Top>
             <Left>0.155in</Left>
             <Height>0.93798in</Height>
-            <Width>3.65in</Width>
+            <Width>5.06821in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>

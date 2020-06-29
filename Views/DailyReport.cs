@@ -128,7 +128,8 @@ namespace LibraryManager.Views
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             dataGridView1.Columns.Clear();
-            LoadGrid(ddlDatePicker.Value);
+            var date = ddlDatePicker.Value.Date;
+            LoadGrid(date);
         }
 
         private void button1_Click(object sender, EventArgs e)
