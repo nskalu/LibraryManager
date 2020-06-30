@@ -19,6 +19,7 @@ namespace LibraryManager.Views
     public partial class AddStudent : MetroForm
     {
         private readonly LibraryManagerEntities ctx;
+        private const int CP_NOCLOSE_BUTTON = 0x200;
         public AddStudent()
         {
             InitializeComponent();
@@ -183,8 +184,7 @@ namespace LibraryManager.Views
                     IDCardViewer rp = new IDCardViewer(getUserByEmail);
                     rp.StartPosition = FormStartPosition.CenterScreen;
                     rp.Show();
-                    if (Directory.Exists(@"C:\" + Global.GlobalVar))
-                        Directory.Delete(@"C:\" + Global.GlobalVar, true);
+                   
                 }
 
             }
@@ -204,6 +204,25 @@ namespace LibraryManager.Views
             txtNumber.Text = "";
         }
 
-    
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            foreach (string item in Global.GlobalVar)
+            {
+                if (Directory.Exists(@"C:\" + item))
+                    Directory.Delete(@"C:\" + item, true);
+            }
+            
+            this.Close();
+        }
     }
 }

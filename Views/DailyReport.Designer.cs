@@ -56,6 +56,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Daily Report";
+            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // dataGridView1
             // 
@@ -77,7 +78,7 @@
             this.groupBox2.Size = new System.Drawing.Size(464, 220);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Borrowed Today";
+            this.groupBox2.Text = "Borrowed";
             // 
             // gdvBorrowed
             // 
@@ -98,7 +99,7 @@
             this.groupBox3.Size = new System.Drawing.Size(440, 220);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Returned Today";
+            this.groupBox3.Text = "Returned";
             // 
             // gdvReturned
             // 

@@ -8,9 +8,9 @@ namespace LibraryManager.Shared
 {
     public static class Global
     {
-        private static string _globalVar = "";
+        private static List<string> _globalVar = new List<string>();
 
-        public static string GlobalVar
+        public static List<string> GlobalVar
         {
             get { return _globalVar; }
             set { _globalVar = value; }

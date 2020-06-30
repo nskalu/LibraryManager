@@ -67,7 +67,7 @@ namespace LibraryManager.Views
                 reportViewer1.LocalReport.Refresh();
                 reportViewer1.RefreshReport();
 
-                Global.GlobalVar = dirname;
+                Global.GlobalVar.Add(dirname);
             }
             catch (Exception ex)
             {

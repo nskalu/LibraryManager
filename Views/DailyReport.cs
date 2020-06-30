@@ -84,19 +84,22 @@ namespace LibraryManager.Views
             {
                 if (e.ColumnIndex == dataGridView1.Columns["actionButton"].Index)
                 {
-                    //Do something with your button.
-
-
-                    DateTime? d = DateTime.Today;
-                    string currDate = d.ToString().Substring(0,10);
+                    int index = e.RowIndex;
+                    var selectedRow = dataGridView1.Rows[index];
+                    //this line uses an extension method to get the value of the cell when the header is passed
+                    var currDate = selectedRow.Cells.GetCellValueFromColumnHeader("CurrentDate").ToString();
+                    DateTime? d = new DateTime();
+                    d = DateTime.Parse(currDate);
                     var borrowed = (from s in ctx.StudentBooks
                                join sa in ctx.Books on s.BookId equals sa.BookId
-                               where s.DateBorrowed.ToString().Substring(0,10)== currDate
-                               select new { sa.Title, sa.Author, sa.ISBN, s.DateBorrowed, s.DateToReturn}).ToList();
+                               where s.DateBorrowed == d
+                                    select new { sa.Title, sa.Author, sa.ISBN, s.DateBorrowed, s.DateToReturn})
+                                    .OrderByDescending(m=>m.DateBorrowed)
+                                    .ToList();
 
                     var returned = (from s in ctx.StudentBooks
                                join sa in ctx.Books on s.BookId equals sa.BookId
-                               where s.DateReturned.ToString() == currDate
+                               where s.DateReturned == d
                                select new { sa.Title, sa.Author, sa.ISBN, s.DateBorrowed, s.DateReturned }).ToList();
 
                     if (borrowed.Count() > 0)
@@ -109,7 +112,7 @@ namespace LibraryManager.Views
                     }
                     if (returned.Count() > 0)
                     {
-                        gdvBorrowed.DataSource = returned;
+                        gdvReturned.DataSource = returned;
                     }
                     else
                     {
@@ -128,8 +131,15 @@ namespace LibraryManager.Views
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             dataGridView1.Columns.Clear();
+            gdvBorrowed.DataSource = null;
+            gdvReturned.DataSource = null;
             var date = ddlDatePicker.Value.Date;
             LoadGrid(date);
+        }
+
+        private void GroupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
