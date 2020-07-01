@@ -84,20 +84,22 @@
                     <Style />
                   </TextRun>
                   <TextRun>
-                    <Value>Library Card</Value>
+                    <Value>Library Access Card</Value>
                     <Style>
                       <FontSize>14pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.50486in</Top>
-            <Left>3.78571in</Left>
-            <Height>0.44722in</Height>
-            <Width>1.4375in</Width>
+            <Top>0.37709in</Top>
+            <Left>0.85222in</Left>
+            <Height>0.42222in</Height>
+            <Width>2.94583in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -132,14 +134,16 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!Name.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.71527in</Top>
+            <Top>1.14653in</Top>
             <Left>0.155in</Left>
             <Height>0.36771in</Height>
             <Width>2.84167in</Width>
@@ -162,17 +166,19 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!MatricNo.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>1.15242in</Top>
-            <Left>0.155in</Left>
+            <Top>1.14653in</Top>
+            <Left>3.13in</Left>
             <Height>0.36771in</Height>
-            <Width>2.84167in</Width>
+            <Width>2.09321in</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -188,7 +194,7 @@
         <Height>2.71667in</Height>
         <Style />
       </Body>
-      <Width>5.32545in</Width>
+      <Width>5.38834in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
