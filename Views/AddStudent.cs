@@ -180,8 +180,8 @@ namespace LibraryManager.Views
                     var JsonR = Newtonsoft.Json.JsonConvert.DeserializeObject<StudentVM>(Json);
                     //Use Student Email to Load Data
                     var getUserByEmail = ctx.Students.Where(c => c.Email == JsonR.Email).SingleOrDefault();
-                    //IdCardView b = new IdCardView(getUserByEmail);
-                    IDCardViewer rp = new IDCardViewer(getUserByEmail);
+                    NewIdCardViewer rp = new NewIdCardViewer(getUserByEmail);
+                    //IDCardViewer rp = new IDCardViewer(getUserByEmail);
                     rp.StartPosition = FormStartPosition.CenterScreen;
                     rp.Show();
                    

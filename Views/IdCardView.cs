@@ -59,5 +59,10 @@ namespace LibraryManager.Views
         {
             e.Graphics.DrawImage(memoryImage, 0, 0);
         }
+
+        private void LblName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
