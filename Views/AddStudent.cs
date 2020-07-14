@@ -13,6 +13,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
+using System.Drawing.Printing;
+using Microsoft.Reporting.WinForms;
+using System.Drawing.Imaging;
 
 namespace LibraryManager.Views
 {
@@ -20,6 +23,13 @@ namespace LibraryManager.Views
     {
         private readonly LibraryManagerEntities ctx;
         private const int CP_NOCLOSE_BUTTON = 0x200;
+        private PrintDocument printdoc;
+        ReportViewer hiddenViewer;
+        private int m_currentPageIndex;
+        public IList<Stream> m_streams;
+        int indexCurrentPage;
+        bool bProcessingPages = true;
+
         public AddStudent()
         {
             InitializeComponent();
@@ -42,10 +52,19 @@ namespace LibraryManager.Views
                     {
                         button.Name = "actionButton";
                         button.HeaderText = "Action";
-                        button.Text = "Print Access Card";
+                        button.Text = "Preview Card";
                         button.UseColumnTextForButtonValue = true; 
                         
                         dataGridView1.Columns.Add(button);
+                    }
+                    DataGridViewButtonColumn button2 = new DataGridViewButtonColumn();
+                    {
+                        button2.Name = "actionButton2";
+                        button2.HeaderText = "Action";
+                        button2.Text = "Print";
+                        button2.UseColumnTextForButtonValue = true;
+
+                        dataGridView1.Columns.Add(button2);
                     }
                 }
                 else
@@ -56,6 +75,7 @@ namespace LibraryManager.Views
                 Cursor = Cursors.Arrow;
             }
         }
+
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -165,15 +185,13 @@ namespace LibraryManager.Views
 
         }
 
-       
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 if (e.ColumnIndex == dataGridView1.Columns["actionButton"].Index)
                 {
-                    //Do something with your button.
+                    //Preview
                     int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
                     var selectedRow = dataGridView1.Rows[selectedrowindex].DataBoundItem;
                     var Json = Newtonsoft.Json.JsonConvert.SerializeObject(selectedRow);
@@ -185,6 +203,11 @@ namespace LibraryManager.Views
                     rp.StartPosition = FormStartPosition.CenterScreen;
                     rp.Show();
                    
+                }
+                else
+                {
+                    //Print
+
                 }
 
             }
@@ -224,5 +247,78 @@ namespace LibraryManager.Views
             
             this.Close();
         }
+
+        public void print_microsoft_report(ref LocalReport report, bool islandscap = false, string printer_name = null)
+        {
+            printdoc = new PrintDocument();
+            if (printer_name != null)
+                printdoc.PrinterSettings.PrinterName = printer_name;
+            if (!printdoc.PrinterSettings.IsValid)
+                throw new Exception("Cannot find the specified printer");
+            else
+            {
+                PaperSize ps;
+                ps = printdoc.PrinterSettings.DefaultPageSettings.PaperSize;
+                // Dim ps As New PaperSize("Custom", page_width, page_height)
+                printdoc.DefaultPageSettings.PaperSize = ps;
+                printdoc.DefaultPageSettings.Landscape = islandscap;
+                Print();
+            }
+        }
+
+        private void Print()
+        {
+            if (m_streams == null || m_streams.Count == 0)
+                throw new Exception("Error: no stream to print.");
+            printdoc.PrintPage += PrintPage;
+            printdoc.BeginPrint += BeginPrint;
+
+            m_currentPageIndex = 0;
+            printdoc.Print();
+        }
+
+        private void PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            bProcessingPages = true;
+            m_currentPageIndex += 1;
+            while ((bProcessingPages))
+            {
+                bool isPageInRange = (m_currentPageIndex >= ev.PageSettings.PrinterSettings.FromPage);
+                isPageInRange = isPageInRange & (m_currentPageIndex <= ev.PageSettings.PrinterSettings.ToPage);
+
+                if ((isPageInRange))
+                {
+                    try
+                    {
+                        int pagetoprint = m_currentPageIndex - 1;
+                        Metafile pageImage = new Metafile(m_streams[pagetoprint]);
+
+                        Rectangle adjustedRect = new Rectangle(ev.PageBounds.Left - System.Convert.ToInt32(ev.PageSettings.HardMarginX), ev.PageBounds.Top - System.Convert.ToInt32(ev.PageSettings.HardMarginY), ev.PageBounds.Width, ev.PageBounds.Height);
+
+                        ev.Graphics.FillRectangle(Brushes.White, adjustedRect);
+
+                        ev.Graphics.DrawImage(pageImage, adjustedRect);
+                        ev.HasMorePages = (pagetoprint < m_streams.Count);
+                    }
+                    catch (Exception ex)
+                    {
+                        ev.HasMorePages = false;
+                        bProcessingPages = false;
+                    }
+                }
+                bProcessingPages = false;
+            }
+        }
+
+        private void BeginPrint(object sender, PrintEventArgs e)
+        {
+            m_currentPageIndex = 0;
+            var p = (PrintDocument)sender;
+            p.PrinterSettings.PrintRange = PrintRange.SomePages;
+            p.PrinterSettings.FromPage = 1;
+            p.PrinterSettings.ToPage = 2;
+
+        }
+
     }
 }
