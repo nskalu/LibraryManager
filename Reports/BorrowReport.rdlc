@@ -452,7 +452,11 @@
       </Tablix>
     </ReportItems>
     <Height>2.96875in</Height>
-    <Style />
+    <Style>
+      <Border>
+        <Style>Solid</Style>
+      </Border>
+    </Style>
   </Body>
   <Width>6.5in</Width>
   <Page>
@@ -529,6 +533,7 @@ C8hWcYA6sJEb482KnZvPtipvFzhwjikQt5JVxKRm2uSyMSjBgp8vqqcZ3+dZssV3cNsRczvduXWNozDb
 3NFRGgNAhFa0jC7AY3YkAKASzFmbw+ZNbKEmgE0NEaGgShoqGhA0JoqE0AmgNGaA0CUJoqE1VgTWVhrKI//Z</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>2820c68b-03cb-44da-8343-008ff3f08fd0</rd:ReportID>
 </Report>

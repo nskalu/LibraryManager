@@ -613,7 +613,7 @@
         <Top>2.09667in</Top>
         <Left>0.125in</Left>
         <Height>0.5in</Height>
-        <Width>10in</Width>
+        <Width>9.99999in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -772,7 +772,11 @@
       </Textbox>
     </ReportItems>
     <Height>2.72167in</Height>
-    <Style />
+    <Style>
+      <Border>
+        <Style>Solid</Style>
+      </Border>
+    </Style>
   </Body>
   <Width>10.25833in</Width>
   <Page>
@@ -869,6 +873,7 @@ C8hWcYA6sJEb482KnZvPtipvFzhwjikQt5JVxKRm2uSyMSjBgp8vqqcZ3+dZssV3cNsRczvduXWNozDb
 3NFRGgNAhFa0jC7AY3YkAKASzFmbw+ZNbKEmgE0NEaGgShoqGhA0JoqE0AmgNGaA0CUJoqE1VgTWVhrKI//Z</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>bda350f8-42f6-451d-bf66-c3c8bcbf5f3b</rd:ReportID>
 </Report>
