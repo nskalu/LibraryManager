@@ -40,7 +40,7 @@
                 <Top>0.08in</Top>
                 <Left>0.68402in</Left>
                 <Height>0.25in</Height>
-                <Width>2.53764in</Width>
+                <Width>2.67097in</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
@@ -74,7 +74,7 @@
                 <Top>0.38in</Top>
                 <Left>0.68833in</Left>
                 <Height>0.25in</Height>
-                <Width>2.53333in</Width>
+                <Width>2.66666in</Width>
                 <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
@@ -108,7 +108,7 @@
                 <Top>0.94364in</Top>
                 <Left>0.68833in</Left>
                 <Height>0.36771in</Height>
-                <Width>2.53333in</Width>
+                <Width>2.66666in</Width>
                 <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
@@ -143,7 +143,7 @@
                 <Top>1.43531in</Top>
                 <Left>0.68402in</Left>
                 <Height>0.36771in</Height>
-                <Width>2.53333in</Width>
+                <Width>2.67097in</Width>
                 <ZIndex>4</ZIndex>
                 <Style>
                   <Border>
@@ -172,7 +172,7 @@
                 <rd:DefaultName>Textbox7</rd:DefaultName>
                 <Top>0.94364in</Top>
                 <Height>0.25in</Height>
-                <Width>0.61458in</Width>
+                <Width>0.50625in</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border>
@@ -215,8 +215,8 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Height>2.03833in</Height>
-            <Width>3.38055in</Width>
+            <Height>2.11175in</Height>
+            <Width>3.40918in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -225,60 +225,70 @@
           </Rectangle>
           <Rectangle Name="Rectangle2">
             <ReportItems>
-              <Image Name="Barcode">
-                <Source>External</Source>
-                <Value>=Parameters!Barcode.Value</Value>
-                <Sizing>FitProportional</Sizing>
-                <Top>0.08in</Top>
-                <Left>0.03333in</Left>
-                <Height>0.93798in</Height>
-                <Width>3.84799in</Width>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                </Style>
-              </Image>
-              <Textbox Name="Textbox10">
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>This card is a property of South Western University. If found, please return to South Western University. Okun-Owa, Ogun State.</Value>
-                        <Style>
-                          <FontStyle>Italic</FontStyle>
-                          <FontWeight>Bold</FontWeight>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
+              <Rectangle Name="Rectangle4">
+                <ReportItems>
+                  <Image Name="Barcode">
+                    <Source>External</Source>
+                    <Value>=Parameters!Barcode.Value</Value>
+                    <Sizing>FitProportional</Sizing>
+                    <Height>0.93798in</Height>
+                    <Width>3.73132in</Width>
                     <Style>
-                      <TextAlign>Center</TextAlign>
+                      <Border>
+                        <Style>None</Style>
+                      </Border>
                     </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <rd:DefaultName>Textbox10</rd:DefaultName>
-                <Top>1.26333in</Top>
-                <Left>0.03333in</Left>
-                <Height>0.53969in</Height>
-                <Width>3.84799in</Width>
-                <ZIndex>1</ZIndex>
+                  </Image>
+                  <Textbox Name="Textbox10">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>This card is a property of South Western University. If found, please return to South Western University. Okun-Owa, Ogun State.</Value>
+                            <Style>
+                              <FontStyle>Italic</FontStyle>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox10</rd:DefaultName>
+                    <Top>1.26333in</Top>
+                    <Left>0.01389in</Left>
+                    <Height>0.53969in</Height>
+                    <Width>3.73132in</Width>
+                    <ZIndex>1</ZIndex>
+                    <Style>
+                      <Border>
+                        <Style>None</Style>
+                      </Border>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </ReportItems>
+                <KeepTogether>true</KeepTogether>
+                <Left>3.46474in</Left>
+                <Height>2.11175in</Height>
+                <Width>3.74521in</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
                 </Style>
-              </Textbox>
+              </Rectangle>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Left>3.43611in</Left>
-            <Height>2.03833in</Height>
-            <Width>3.95077in</Width>
+            <Height>2.11175in</Height>
+            <Width>7.20994in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -287,10 +297,10 @@
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>2.03833in</Height>
+        <Height>2.33675in</Height>
         <Style />
       </Body>
-      <Width>7.38688in</Width>
+      <Width>7.24242in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
