@@ -110,19 +110,23 @@ namespace LibraryManager.Views
         {
             try
             {
-                    reportViewer1.Reset();
-                    reportViewer1.LocalReport.ReportPath = @"..\..\Reports\newIDCard.rdlc";
-                    ReportParameter rp = new ReportParameter("Name", $"{student.LastName} {student.FirstName} {student.MiddleName}");
-                    ReportParameter rps = new ReportParameter("MatricNo", student.MatricNo);
-                    ReportParameter pic = new ReportParameter("Barcode", new Uri(@"C:\" + dirname + "\\" + dirname + ".jpg").AbsoluteUri);
-                    reportViewer1.LocalReport.EnableExternalImages = true;
-                    reportViewer1.LocalReport.SetParameters(new ReportParameter[] { rp, rps, pic });
-                    reportViewer1.Visible = true;
-                    reportViewer1.ProcessingMode = ProcessingMode.Local;
-                    reportViewer1.LocalReport.Refresh();
-                    reportViewer1.RefreshReport();
-                    reportViewer1.ShowExportButton = false;
-                    Global.GlobalVar.Add(dirname);
+                reportViewer1.Reset();
+#if DEBUG
+                reportViewer1.LocalReport.ReportPath = @"..\..\Reports\newIDCard.rdlc";
+#else
+    reportViewer1.LocalReport.ReportPath = @"C:\Program Files (x86)\Reports\newIDCard.rdlc"; 
+#endif
+                ReportParameter rp = new ReportParameter("Name", $"{student.LastName} {student.FirstName} {student.MiddleName}");
+                ReportParameter rps = new ReportParameter("MatricNo", student.MatricNo);
+                ReportParameter pic = new ReportParameter("Barcode", new Uri(@"C:\" + dirname + "\\" + dirname + ".jpg").AbsoluteUri);
+                reportViewer1.LocalReport.EnableExternalImages = true;
+                reportViewer1.LocalReport.SetParameters(new ReportParameter[] { rp, rps, pic });
+                reportViewer1.Visible = true;
+                reportViewer1.ProcessingMode = ProcessingMode.Local;
+                reportViewer1.LocalReport.Refresh();
+                reportViewer1.RefreshReport();
+                reportViewer1.ShowExportButton = false;
+                Global.GlobalVar.Add(dirname);
                
                 if (action)
                 {
