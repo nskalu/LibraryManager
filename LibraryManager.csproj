@@ -285,6 +285,7 @@
     <EmbeddedResource Include="Reports\BorrowReport.rdlc" />
     <EmbeddedResource Include="Reports\DailyReport.rdlc" />
     <EmbeddedResource Include="Reports\newIDCard.rdlc" />
+    <EmbeddedResource Include="Reports\newIDCard2.rdlc" />
     <EmbeddedResource Include="Reports\Registered.rdlc" />
     <EmbeddedResource Include="Reports\StudentsVisit.rdlc" />
     <EmbeddedResource Include="Views\AddStudent.resx">

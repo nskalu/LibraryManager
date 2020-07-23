@@ -112,9 +112,9 @@ namespace LibraryManager.Views
             {
                 reportViewer1.Reset();
 #if DEBUG
-                reportViewer1.LocalReport.ReportPath = @"..\..\Reports\newIDCard.rdlc";
+                reportViewer1.LocalReport.ReportPath = @"..\..\Reports\newIDCard2.rdlc";
 #else
-    reportViewer1.LocalReport.ReportPath = @"C:\Program Files (x86)\Reports\newIDCard.rdlc"; 
+    reportViewer1.LocalReport.ReportPath = @"C:\Program Files (x86)\Reports\newIDCard2.rdlc"; 
 #endif
                 ReportParameter rp = new ReportParameter("Name", $"{student.LastName} {student.FirstName} {student.MiddleName}");
                 ReportParameter rps = new ReportParameter("MatricNo", student.MatricNo);
