@@ -204,7 +204,7 @@ namespace LibraryManager.Views
                 {
                     //Print
                     bool print = true;
-                    string installedPrinter = "";
+                    string installedPrinter = "Canon iP7200 series";
                     NewIdCardViewer rp = new NewIdCardViewer(getUserByEmail, print, installedPrinter);
                 }
 

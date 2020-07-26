@@ -4,17 +4,10 @@ using MetroFramework.Forms;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
-using System.Drawing.Text;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
 
@@ -154,6 +147,7 @@ namespace LibraryManager.Views
                 // Dim ps As New PaperSize("Custom", page_width, page_height)
                 printdoc.DefaultPageSettings.PaperSize = ps;
                 printdoc.DefaultPageSettings.Landscape = islandscap;
+                Export(report);
                 Print();
             }
         }
@@ -212,5 +206,33 @@ namespace LibraryManager.Views
 
         }
 
+        private void Export(LocalReport report)
+        {
+            int w;
+            int h;
+            if (printdoc.DefaultPageSettings.Landscape == true)
+            {
+                w = printdoc.DefaultPageSettings.PaperSize.Height;
+                h = printdoc.DefaultPageSettings.PaperSize.Width;
+            }
+            else
+            {
+                w = printdoc.DefaultPageSettings.PaperSize.Width;
+                h = printdoc.DefaultPageSettings.PaperSize.Height;
+            }
+            string deviceInfo = "<DeviceInfo>" + "<OutputFormat>EMF</OutputFormat>" + "<PageWidth>" + w / (double)100 + "in</PageWidth>" + "<PageHeight>" + h / (double)100 + "in</PageHeight>" + "<MarginTop>0.0in</MarginTop>" + "<MarginLeft>0.0in</MarginLeft>" + "<MarginRight>0.0in</MarginRight>" + "<MarginBottom>0.0in</MarginBottom>" + "</DeviceInfo>";
+            Warning[] warnings;
+            m_streams = new List<Stream>();
+            report.Render("Image", deviceInfo, CreateStream, out warnings);
+            foreach (Stream stream in m_streams)
+                stream.Position = 0;
+        }
+
+        private Stream CreateStream(string name, string fileNameExtension, System.Text.Encoding encoding, string mimeType, bool willSeek)
+        {
+            Stream stream = new MemoryStream();
+            m_streams.Add(stream);
+            return stream;
+        }
     }
 }
