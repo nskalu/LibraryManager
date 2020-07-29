@@ -32,7 +32,7 @@ namespace LibraryManager.Views
         {
             BarcodeWriter wr = new BarcodeWriter();
 
-            wr.Format = BarcodeFormat.CODE_39;
+            wr.Format = BarcodeFormat.EAN_13;
 
             System.IO.MemoryStream ms = new System.IO.MemoryStream();
 
