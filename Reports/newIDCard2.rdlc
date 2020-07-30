@@ -246,6 +246,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>Gainsboro</BackgroundColor>
             </Style>
           </Rectangle>
           <Rectangle Name="Rectangle3">
@@ -326,6 +327,7 @@
                 <Style>Solid</Style>
                 <Width>1pt</Width>
               </RightBorder>
+              <BackgroundColor>White</BackgroundColor>
             </Style>
           </Rectangle>
         </ReportItems>

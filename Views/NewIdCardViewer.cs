@@ -1,12 +1,15 @@
-﻿using LibraryManager.Models;
+﻿using BarcodeLib;
+using LibraryManager.Models;
 using LibraryManager.Shared;
 using MetroFramework.Forms;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
+using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
 using ZXing;
@@ -19,6 +22,7 @@ namespace LibraryManager.Views
         {
             InitializeComponent();
             getBarCode("*"+student.qrcode+"*");
+            GenerateBarCodeWithBarcodeLib("1234567890");
             LoadReport(student, action, installedPrinter);
         }
         private string dirname = Guid.NewGuid().ToString();
@@ -31,8 +35,9 @@ namespace LibraryManager.Views
         void getBarCode(string data)
         {
             BarcodeWriter wr = new BarcodeWriter();
+            Color forecolor = Color.Black;
 
-            wr.Format = BarcodeFormat.EAN_13;
+            wr.Format = BarcodeFormat.CODE_93;
 
             System.IO.MemoryStream ms = new System.IO.MemoryStream();
 
@@ -45,13 +50,33 @@ namespace LibraryManager.Views
             }
 
             Bitmap bmp = new Bitmap(ms);
-            bmp.Save(@"C:\" + dirname + "\\" + dirname + ".jpg");
+            bmp.Save(@"C:\" + dirname + "\\" + dirname + "1.jpg");
 
             //return bmp;
 
         }
+        void GenerateBarCodeWithBarcodeLib(string data)
+        {
+            Barcode barcode = new Barcode();
+            Color forecolor = Color.Black;
+            Color backcolor = Color.Transparent;
+            Image img = barcode.Encode(TYPE.UPCA, data, forecolor, backcolor);
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, img.RawFormat);
+                Bitmap bmp = new Bitmap(ms);
+                //create directory to save the image
 
-        //void getBarCode(string data)
+                if (!Directory.Exists(@"C:\" + dirname))
+                {
+                    Directory.CreateDirectory(@"C:\" + dirname);
+                }
+
+                bmp.Save(@"C:\" + dirname + "\\" + dirname + ".jpg");
+            }
+        }
+
+        //void getBarCode1(string data)
         //{
         //    string Barcode = data;
 
@@ -86,7 +111,7 @@ namespace LibraryManager.Views
         //            graphics.DrawString(Barcode, font, new SolidBrush(Color.Black), TextPosition, StringFormat.GenericTypographic);
 
         //            bitmap.Save(@"barcode.png", ImageFormat.Png);
-        //            //this.pictureBox1.Image = (Bitmap)bitmap.Clone();
+        //            this.pictureBox1.Image = (Bitmap)bitmap.Clone();
         //            if (!Directory.Exists(@"C:\" + dirname))
         //            {
         //                Directory.CreateDirectory(@"C:\" + dirname);
