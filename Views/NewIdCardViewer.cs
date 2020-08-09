@@ -21,15 +21,14 @@ namespace LibraryManager.Views
         public NewIdCardViewer(Student student, bool action, string installedPrinter)
         {
             InitializeComponent();
-            getBarCode("*"+student.qrcode+"*");
-            GenerateBarCodeWithBarcodeLib("1234567890");
+            //getBarCode("*"+student.qrcode+"*");
+            GenerateBarCodeWithBarcodeLib(student.qrcode);
             LoadReport(student, action, installedPrinter);
         }
         private string dirname = Guid.NewGuid().ToString();
         private PrintDocument printdoc;
         private int m_currentPageIndex;
         public IList<Stream> m_streams;
-        int indexCurrentPage;
         bool bProcessingPages = true;
 
         void getBarCode(string data)
@@ -39,9 +38,9 @@ namespace LibraryManager.Views
 
             wr.Format = BarcodeFormat.CODE_93;
 
-            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            MemoryStream ms = new MemoryStream();
 
-            wr.Write(data).Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            wr.Write(data).Save(ms, ImageFormat.Jpeg);
             //create directory to save the image
 
             if (!Directory.Exists(@"C:\" + dirname))
@@ -57,23 +56,33 @@ namespace LibraryManager.Views
         }
         void GenerateBarCodeWithBarcodeLib(string data)
         {
-            Barcode barcode = new Barcode();
-            Color forecolor = Color.Black;
-            Color backcolor = Color.Transparent;
-            Image img = barcode.Encode(TYPE.UPCA, data, forecolor, backcolor);
-            using (var ms = new MemoryStream())
+            try
             {
-                img.Save(ms, img.RawFormat);
-                Bitmap bmp = new Bitmap(ms);
-                //create directory to save the image
-
-                if (!Directory.Exists(@"C:\" + dirname))
+                Barcode barcode = new Barcode();
+                Color forecolor = Color.Black;
+                Color backcolor = Color.Transparent;
+                Image img = barcode.Encode(TYPE.CODE93, data, forecolor, backcolor);
+                using (var ms = new MemoryStream())
                 {
-                    Directory.CreateDirectory(@"C:\" + dirname);
+                    //img.Save(ms, img.RawFormat);
+                    Bitmap bmp = new Bitmap(img);
+                    //create directory to save the image
+
+                    if (!Directory.Exists(@"C:\" + dirname))
+                    {
+                        Directory.CreateDirectory(@"C:\" + dirname);
+                    }
+
+                    bmp.Save(@"C:\" + dirname + "\\" + dirname + ".jpg");
                 }
 
-                bmp.Save(@"C:\" + dirname + "\\" + dirname + ".jpg");
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("An error occured while printing", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         //void getBarCode1(string data)
