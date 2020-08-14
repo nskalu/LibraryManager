@@ -21,8 +21,8 @@ namespace LibraryManager.Views
         public NewIdCardViewer(Student student, bool action, string installedPrinter)
         {
             InitializeComponent();
-            //getBarCode("*"+student.qrcode+"*");
-            GenerateBarCodeWithBarcodeLib(student.qrcode);
+            getBarCode(student.qrcode);
+            //GenerateBarCodeWithBarcodeLib(student.qrcode);
             LoadReport(student, action, installedPrinter);
         }
         private string dirname = Guid.NewGuid().ToString();
