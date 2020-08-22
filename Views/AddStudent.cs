@@ -195,8 +195,6 @@ namespace LibraryManager.Views
                     //Preview
                     bool preview = false;
                     NewIdCardViewer rp = new NewIdCardViewer(getUserByEmail, preview,"");
-                    //IDCardViewer rp = new IDCardViewer(getUserByEmail);
-                    //IdCardView rp = new IdCardView(getUserByEmail);
                     rp.StartPosition = FormStartPosition.CenterScreen;
                     rp.Show();
                    

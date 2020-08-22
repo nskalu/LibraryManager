@@ -72,7 +72,7 @@ namespace LibraryManager.Views
 #if DEBUG
                 reportViewer1.LocalReport.ReportPath = @"..\..\Reports\" + ReportName;
 #else
-    reportViewer1.LocalReport.ReportPath = @"C:\Program Files (x86)\Reports\" + ReportName; 
+    reportViewer1.LocalReport.ReportPath = @"C:\Program Files (x86)\LibraryManagerSetup2\Reports\" + ReportName; 
 #endif
 
                 if (dt.Rows.Count > 0)
