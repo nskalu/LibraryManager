@@ -52,7 +52,7 @@ namespace LibraryManager.Views
             catch (Exception ex)
             {
 
-                MessageBox.Show($"Oops an error occured, Try again! "+ex.Message+" Stack trace: "+ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Oops an error occured, Try again! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
