@@ -337,24 +337,29 @@ namespace LibraryManager
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("An error occured while deleting", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void BtnDownload_Click(object sender, EventArgs e)
         {
-            string remoteUri = @"..\..\Shared\";
-            string fileName = "BookUploadTemplate.xlsx", myStringWebResource = null;
-            // Create a new WebClient instance.
-            WebClient myWebClient = new WebClient();
-            // Concatenate the domain with the Web resource filename.
-            myStringWebResource = remoteUri + fileName;
-            // Download the Web resource and save it into the current filesystem folder.
-            myWebClient.DownloadFile(myStringWebResource, fileName);
-            string msg = "\nDownloaded file saved in the following file system folder:\n\t" + Application.StartupPath;
-            MessageBox.Show(msg, "Download Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            
+            try
+            {
+                string remoteUri = @"..\..\Shared\";
+                string fileName = "BookUploadTemplate.xlsx", myStringWebResource = null;
+                // Create a new WebClient instance.
+                WebClient myWebClient = new WebClient();
+                // Concatenate the domain with the Web resource filename.
+                myStringWebResource = remoteUri + fileName;
+                // Download the Web resource and save it into the current filesystem folder.
+                myWebClient.DownloadFile(myStringWebResource, fileName);
+                string msg = "\nDownloaded file saved in the following file system folder:\n\t" + Application.StartupPath;
+                MessageBox.Show(msg, "Download Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to open the file, Try again or use the BookUploadTemplate.xlsx file provided to you", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 
