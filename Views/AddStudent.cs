@@ -143,41 +143,6 @@ namespace LibraryManager.Views
                 throw;
             }
         }
-        void getQRCode(string data, string dest)
-        {
-            BarcodeWriter wr = new BarcodeWriter();
-
-            wr.Format = BarcodeFormat.QR_CODE;
-
-            wr.Write(data).Save(dest);
-        }
-        Image getQRCode(string data)
-        {
-            BarcodeWriter wr = new BarcodeWriter();
-
-            wr.Format = BarcodeFormat.QR_CODE;
-
-            System.IO.MemoryStream ms = new System.IO.MemoryStream();
-
-            wr.Write(data).Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-            Bitmap bmp = new Bitmap(ms);
-
-            return bmp;
-
-        }
-        string readQRCode(string data, string source)
-        {
-            BarcodeReader reader = new BarcodeReader();
-
-            var sourcebmp = (Bitmap)Bitmap.FromFile(source);
-
-            var coderesult = reader.Decode(sourcebmp);
-
-            return coderesult?.Text;
-
-
-        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -197,7 +162,6 @@ namespace LibraryManager.Views
                     NewIdCardViewer rp = new NewIdCardViewer(getUserByEmail, preview,"");
                     rp.StartPosition = FormStartPosition.CenterScreen;
                     rp.Show();
-                   
                 }
                 else
                 {
@@ -241,11 +205,7 @@ namespace LibraryManager.Views
                 if (Directory.Exists(@"C:\" + item))
                     Directory.Delete(@"C:\" + item, true);
             }
-            
             this.Close();
         }
-
-       
-
     }
 }
