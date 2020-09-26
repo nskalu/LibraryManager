@@ -21,7 +21,6 @@ namespace LibraryManager.Views
         public NewIdCardViewer(Student student, bool action, string installedPrinter)
         {
             InitializeComponent();
-            //getBarCode(student.qrcode);
             GenerateBarCodeWithBarcodeLib(student.qrcode);
             LoadReport(student, action, installedPrinter);
         }
@@ -52,7 +51,6 @@ namespace LibraryManager.Views
             bmp.Save(@"C:\" + dirname + "\\" + dirname + "1.jpg");
 
             //return bmp;
-
         }
         void GenerateBarCodeWithBarcodeLib(string data)
         {
@@ -103,7 +101,7 @@ namespace LibraryManager.Views
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
                 reportViewer1.LocalReport.Refresh();
                 reportViewer1.RefreshReport();
-                reportViewer1.ShowExportButton = false;
+                //reportViewer1.ShowExportButton = false;
                 Global.GlobalVar.Add(dirname);
                
                 if (action)
